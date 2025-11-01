@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Color Test</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="components/navigation-loader.js"></script>
+    <style>
+        .test-section {
+            margin: 40px 0;
+            padding: 20px;
+            border: 2px solid #ddd;
+            background: #f9f9f9;
+        }
+
+        .test-homepage {
+            background: #333;
+            color: white;
+        }
+
+        .color-indicator {
+            padding: 10px;
+            margin: 10px 0;
+            font-family: monospace;
+            border-left: 4px solid #007cba;
+            background: white;
+            color: black;
+        }
+    </style>
+</head>
+
+<!-- TEST 1: Regular page (should have BLACK navigation) -->
+
+<body class="fusion-body">
+    <div class="test-section">
+        <h2>TEST 1: Regular Page Navigation (Should be BLACK)</h2>
+        <header id="masthead1" class="site-header fusion-header" role="banner">
+            <!-- Navigation will load here -->
+        </header>
+        <div class="color-indicator">
+            ✓ Body classes: <strong>fusion-body</strong> (no 'home' class)<br>
+            ✓ Expected: BLACK navigation text<br>
+            ✓ CSS Rule: .awb-menu__main-a { color: #000 !important; }
+        </div>
+    </div>
+
+    <div class="test-section test-homepage">
+        <h2 style="color: white;">TEST 2: Homepage Navigation (Should be WHITE)</h2>
+        <!-- Simulate homepage navigation -->
+        <div class="fusion-body home" style="padding: 20px;">
+            <header id="masthead2" class="site-header fusion-header" role="banner">
+                <!-- Homepage navigation simulation -->
+                <div class="fusion-tb-header">
+                    <div class="fusion-fullwidth">
+                        <div class="fusion-builder-row">
+                            <div class="logo">
+                                <a href="index2.html" id="logo-link">Andrea<strong>Aimar</strong></a>
+                            </div>
+                            <nav class="awb-menu awb-menu_desktop">
+                                <ul class="awb-menu__main-ul">
+                                    <li><a href="stories.html" class="awb-menu__main-a"><span
+                                                class="menu-text">STORIES</span></a></li>
+                                    <li><a href="stories1.html" class="awb-menu__main-a"><span
+                                                class="menu-text">STORIES1</span></a></li>
+                                    <li><a href="stories2.html" class="awb-menu__main-a"><span
+                                                class="menu-text">STORIES2</span></a></li>
+                                    <li><a href="about.html" class="awb-menu__main-a"><span
+                                                class="menu-text">ABOUT</span></a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class="color-indicator">
+                ✓ Body classes: <strong>fusion-body home</strong><br>
+                ✓ Expected: WHITE navigation text<br>
+                ✓ CSS Rule: .fusion-body.home .awb-menu__main-a { color: #fff !important; }
+            </div>
+        </div>
+    </div>
+
+    <div class="test-section">
+        <h2>Current Page Analysis</h2>
+        <div id="analysis" class="color-indicator">
+            Loading analysis...
+        </div>
+
+        <h3>Quick Links to Test:</h3>
+        <p>
+            <a href="index2.html"
+                style="background: #333; color: white; padding: 10px; text-decoration: none; margin: 5px;">Homepage
+                (WHITE nav)</a>
+            <a href="stories.html"
+                style="background: #ddd; color: black; padding: 10px; text-decoration: none; margin: 5px;">Stories
+                (BLACK nav)</a>
+            <a href="story-detail/afghanistan-after-the-taliban.html"
+                style="background: #ddd; color: black; padding: 10px; text-decoration: none; margin: 5px;">Story Detail
+                (BLACK nav)</a>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Load navigation for the first test
+            loadNavigationForTest();
+
+            // Analyze current page
+            setTimeout(analyzeCurrentPage, 1000);
+        });
+
+        async function loadNavigationForTest() {
+            try {
+                const response = await fetch('components/navigation.html');
+                const navigationHTML = await response.text();
+                document.getElementById('masthead1').innerHTML = navigationHTML;
+            } catch (error) {
+                console.error('Error loading navigation:', error);
+            }
+        }
+
+        function analyzeCurrentPage() {
+            const analysis = document.getElementById('analysis');
+            const bodyClasses = document.body.className;
+            const isHomepage = bodyClasses.includes('home');
+            const menuItems = document.querySelectorAll('.awb-menu__main-a');
+
+            let menuColors = [];
+            menuItems.forEach((item, index) => {
+                const computedStyle = window.getComputedStyle(item);
+                const color = computedStyle.color;
+                menuColors.push(`Menu ${index + 1}: ${color}`);
+            });
+
+            analysis.innerHTML = `
+                <strong>Current Page Analysis:</strong><br>
+                Body Classes: ${bodyClasses}<br>
+                Is Homepage: ${isHomepage ? 'YES' : 'NO'}<br>
+                Expected Nav Color: ${isHomepage ? 'WHITE (#fff)' : 'BLACK (#000)'}<br>
+                Menu Items Found: ${menuItems.length}<br>
+                ${menuColors.join('<br>')}
+            `;
+        }
+    </script>
+</body>
+
+</html>

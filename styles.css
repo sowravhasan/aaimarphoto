@@ -1,0 +1,1306 @@
+/* CSS Variables matching original WordPress design */
+:root {
+    --awb-color1: #000000;
+    --awb-color2: #ffffff;
+    --awb-color3: #333333;
+    --awb-color4: #666666;
+    --awb-color5: #f8f8f8;
+    --primary-color: #65bc7b;
+    --body_typography-font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    --body_typography-font-size: 16px;
+    --body_typography-color: #747474;
+}
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--body_typography-font-family);
+    font-size: var(--body_typography-font-size);
+    color: var(--body_typography-color);
+    line-height: 1.5;
+}
+
+/* Full Screen Vertical Slider base HTML structure */
+html.fsvs {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+html.fsvs #wrapper,
+html.fsvs body {
+    height: 100%;
+}
+
+html.fsvs #fsvs-body {
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+}
+
+html.fsvs #fsvs-body>* {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+}
+
+/* Enhanced pagination with exact WordPress styling */
+html.fsvs #fsvs-pagination {
+    margin: 0;
+    padding: 8px 4px;
+    position: fixed;
+    height: auto;
+    right: 30px;
+    top: 50%;
+    z-index: 999;
+    width: 25px;
+    transform: translateY(-50%);
+    transition: right 0.3s ease;
+}
+
+html.fsvs #fsvs-pagination:hover {
+    right: 20px;
+}
+
+html.fsvs #fsvs-pagination ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+html.fsvs #fsvs-pagination li {
+    list-style: none;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    margin: 0 0 8px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+html.fsvs #fsvs-pagination li>span {
+    border-radius: 100%;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+html.fsvs #fsvs-pagination li>span>span {
+    border-radius: 100%;
+    width: 8px;
+    height: 8px;
+    line-height: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    display: block;
+    margin: 4px;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+html.fsvs #fsvs-pagination li.active>span>span {
+    background: #fff;
+    border-color: #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+html.fsvs #fsvs-pagination li:hover>span>span {
+    border-color: #fff;
+    transform: scale(1.2);
+}
+
+html.fsvs #fsvs-pagination li:last-child {
+    margin: 0;
+}
+
+/* Slide styling with improved animations */
+.slide {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slide.prev {
+    transform: translateY(-100%);
+}
+
+.slide.next {
+    transform: translateY(100%);
+}
+
+/* Exact WordPress header styling */
+.fusion-tb-header {
+    position: relative;
+    z-index: 1000;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+.fusion-tb-header .fusion-fullwidth {
+    width: 100%;
+    max-width: none;
+    padding: 0;
+    margin: 0;
+}
+
+.fusion-builder-row {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo styling - exact WordPress match */
+.fusion_builder_column_1_3 {
+    flex: 0 0 33.333333%;
+    max-width: 33.333333%;
+}
+
+.fusion-title.logo .fusion-title-heading a {
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    line-height: 40px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.fusion-title.logo .fusion-title-heading a strong {
+    font-weight: 500;
+}
+
+.fusion-title.logo .fusion-title-heading a:hover {
+    opacity: 0.8;
+}
+
+/* Navigation styling - exact WordPress AWB menu structure */
+.fusion_builder_column_2_3 {
+    flex: 0 0 66.666667%;
+    max-width: 66.666667%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* Header structure */
+.fusion-header-wrapper {
+    padding: 30px 0;
+    background: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+}
+
+.fusion-row {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Logo styling */
+.logo a {
+    color: #fff !important;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: 400;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+}
+
+.logo a:hover {
+    color: #fff !important;
+}
+
+.awb-menu {
+    font-family: "Raleway", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.awb-menu__main-ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.awb-menu__main-li {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.awb-menu__main-a {
+    position: relative;
+    display: block;
+    color: #fff !important;
+    text-decoration: none;
+    padding: 15px 10px;
+    border-bottom: 1px solid transparent;
+    transition: all 0.2s ease;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.awb-menu__main-a .menu-text {
+    position: relative;
+    z-index: 2;
+}
+
+.awb-menu__main-a:hover,
+.current-menu-item .awb-menu__main-a {
+    border-bottom-color: #fff;
+    color: #fff !important;
+}
+
+.awb-menu__main-background-default,
+.awb-menu__main-background-active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.awb-menu__main-li:hover .awb-menu__main-background-default {
+    opacity: 0.1;
+    background: #fff;
+}
+
+/* Main content spacing */
+.site-main {
+    margin-top: 120px;
+    min-height: 100vh;
+}
+
+/* For homepage with full screen slider */
+.fusion-body.home .site-main {
+    margin-top: 0;
+}
+
+.fusion-body.home .fusion-header-wrapper {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .fusion-row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .awb-menu__main-ul {
+        gap: 20px;
+    }
+
+    .awb-menu__main-a {
+        padding: 10px 5px;
+        font-size: 11px;
+    }
+}
+
+@media (max-width: 768px) {
+    .fusion-header-wrapper {
+        padding: 20px 0;
+    }
+
+    .logo a {
+        font-size: 24px;
+    }
+
+    .awb-menu__main-ul {
+        flex-wrap: wrap;
+        gap: 15px;
+        justify-content: center;
+    }
+
+    .awb-menu__main-a {
+        padding: 8px 4px;
+        font-size: 10px;
+    }
+
+    .site-main {
+        margin-top: 140px;
+    }
+}
+
+.awb-menu__m-toggle[aria-expanded="true"] .awb-menu__m-collapse-icon-open {
+    display: none;
+}
+
+.awb-menu__m-toggle[aria-expanded="true"] .awb-menu__m-collapse-icon-close {
+    display: inline-block;
+}
+
+/* Home page specific styles matching WordPress theme */
+.fusion-body.home .logo a {
+    color: #fff !important;
+}
+
+.fusion-body.home .awb-menu__main-a {
+    color: #fff !important;
+}
+
+/* Responsive design */
+@media (max-width: 1090px) {
+    .awb-menu__m-toggle {
+        display: block;
+    }
+
+    .awb-menu__main-ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background: rgba(0, 0, 0, 0.95);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        min-width: 200px;
+        padding: 20px 0;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .awb-menu__main-ul.mobile-open {
+        display: flex;
+    }
+
+    .awb-menu__main-li {
+        width: 100%;
+    }
+
+    .awb-menu__main-a {
+        padding: 15px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .awb-menu__main-a:hover {
+        background: rgba(255, 255, 255, 0.1);
+        border-bottom-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+@media (max-width: 768px) {
+    .fusion-builder-row {
+        padding: 0 15px;
+    }
+
+    .fusion-title.logo .fusion-title-heading a {
+        font-size: 32px;
+        line-height: 32px;
+    }
+
+    html.fsvs #fsvs-pagination {
+        right: 15px;
+        width: 20px;
+    }
+
+    html.fsvs #fsvs-pagination li {
+        width: 16px;
+        height: 16px;
+        margin-bottom: 6px;
+    }
+
+    html.fsvs #fsvs-pagination li>span {
+        width: 16px;
+        height: 16px;
+    }
+
+    html.fsvs #fsvs-pagination li>span>span {
+        width: 6px;
+        height: 6px;
+        margin: 4px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .fusion_builder_column_1_3,
+    .fusion_builder_column_2_3 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .fusion-builder-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .fusion_builder_column_2_3 {
+        justify-content: flex-start;
+        width: 100%;
+    }
+}
+
+/* Improved loading and transition effects */
+.fusion-wrapper {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.fusion-wrapper.loaded {
+    opacity: 1;
+}
+
+/* Smooth scroll behavior */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Enhanced focus states for accessibility */
+.awb-menu__main-a:focus,
+.awb-menu__m-toggle:focus {
+    outline: 2px solid rgba(255, 255, 255, 0.5);
+    outline-offset: 2px;
+}
+
+/* Preloader animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fusion-tb-header {
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Enhanced hover effects */
+.awb-menu__main-li {
+    overflow: hidden;
+}
+
+.awb-menu__main-li::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: #fff;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.awb-menu__main-li:hover::before {
+    width: 100%;
+}
+
+/* Improved typography */
+.menu-text {
+    letter-spacing: 0.5px;
+    font-weight: 400;
+}
+
+/* Performance optimizations */
+.slide {
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+#fsvs-pagination li {
+    will-change: transform;
+}
+
+/* Accessibility improvements */
+.screen-reader-text {
+    position: absolute !important;
+    clip: rect(1px, 1px, 1px, 1px);
+    padding: 0 !important;
+    border: 0 !important;
+    height: 1px !important;
+    width: 1px !important;
+    overflow: hidden;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+
+    .slide,
+    .awb-menu__main-a,
+    #fsvs-pagination li,
+    .fusion-wrapper {
+        transition: none;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .awb-menu__main-a {
+        border: 1px solid;
+    }
+
+    #fsvs-pagination li>span>span {
+        border-width: 3px;
+    }
+}
+
+/* Enhanced Stories Page Layout - Centered Content */
+.site-main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 20px 40px 20px;
+}
+
+.fusion-builder-row {
+    max-width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 !important;
+}
+
+.fusion-fullwidth {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* Enhanced Stories Grid Layout */
+.fusion-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 30px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.fusion-grid-3 .fusion-grid-column {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+}
+
+.fusion-grid-3 .fusion-grid-column:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.fusion-grid-3 .fusion-grid-column img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 0;
+    transition: transform 0.3s ease;
+}
+
+.fusion-grid-3 .fusion-grid-column:hover img {
+    transform: scale(1.05);
+}
+
+.fusion-grid-3 .fusion-column-wrapper {
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.fusion-grid-3 .fusion-text {
+    padding: 20px;
+}
+
+.fusion-grid-3 .subtitle {
+    padding: 15px 20px 0 20px;
+    margin: 0;
+}
+
+.fusion-grid-3 .subtitle p {
+    color: #666;
+    font-size: 12px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0;
+}
+
+.fusion-grid-3 .fusion-title {
+    padding: 10px 20px;
+    flex-grow: 1;
+}
+
+.fusion-grid-3 .fusion-title h2 {
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 0;
+    font-weight: 600;
+}
+
+.fusion-grid-3 .fusion-title a {
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.fusion-grid-3 .fusion-title a:hover {
+    color: #007cba;
+}
+
+.fusion-grid-3 .myexcerpt {
+    padding: 0 20px 20px 20px;
+}
+
+.fusion-grid-3 .myexcerpt p {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive design for stories grid */
+@media (max-width: 768px) {
+    .site-main {
+        padding: 100px 15px 30px 15px;
+    }
+
+    .fusion-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .fusion-grid-3 .fusion-grid-column img {
+        height: 200px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .fusion-grid-3 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+/* Mobile hamburger menu styles */
+.mobile-menu-toggle {
+    display: none !important;
+    /* Hide by default on all devices */
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #fff;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.mobile-menu-toggle .hamburger {
+    display: flex;
+    flex-direction: column;
+    width: 25px;
+    height: 20px;
+    justify-content: space-between;
+}
+
+.mobile-menu-toggle .hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 1px;
+    transition: all 0.3s ease;
+}
+
+.mobile-menu-toggle.active .hamburger span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.mobile-menu-toggle.active .hamburger span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-menu-toggle.active .hamburger span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+}
+
+/* General mobile menu hide rule - very specific */
+@media (min-width: 1090px) {
+
+    .mobile-menu-toggle,
+    .awb-menu__m-toggle,
+    button.mobile-menu-toggle {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    .awb-menu_desktop {
+        display: flex !important;
+        position: static !important;
+        background: none !important;
+        width: auto !important;
+        height: auto !important;
+    }
+}
+
+/* Desktop navigation - always visible */
+@media (min-width: 769px) {
+    .awb-menu_desktop {
+        display: flex !important;
+    }
+
+    .mobile-menu-toggle {
+        display: none !important;
+    }
+
+    /* Force hide all mobile toggle variations */
+    .awb-menu__m-toggle,
+    .awb-menu__m-toggle_no-text,
+    button[class*="toggle"] {
+        display: none !important;
+        visibility: hidden !important;
+    }
+
+    /* Ensure desktop menu is visible */
+    .fusion-menu.awb-menu__main-ul {
+        display: flex !important;
+        visibility: visible !important;
+    }
+
+    /* Add padding to homepage navigation */
+    .fusion-tb-header .fusion-builder-row {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    .fusion-tb-header .fusion-row {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    /* Ensure desktop navigation spacing */
+    .awb-menu__main-ul {
+        margin-right: 20px;
+    }
+
+    .awb-menu__main-a {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+}
+
+/* Mobile navigation */
+@media (max-width: 768px) {
+    .fusion-header-wrapper .fusion-row {
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .fusion-layout-column:first-child {
+        flex: 0 0 auto;
+    }
+
+    .fusion-layout-column:last-child {
+        flex: 0 0 auto;
+    }
+
+    .logo .fusion-title-heading {
+        font-size: 32px !important;
+        line-height: 32px !important;
+        text-align: left;
+    }
+
+    .mobile-menu-toggle {
+        display: block !important;
+        /* Only show on mobile devices */
+        position: relative;
+        z-index: 1001;
+    }
+
+    .awb-menu_desktop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.95);
+        z-index: 1000;
+        padding-top: 100px;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .awb-menu_desktop.mobile-open {
+        display: flex !important;
+    }
+
+    .awb-menu__main-ul {
+        flex-direction: column;
+        gap: 30px;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    .awb-menu__main-a {
+        font-size: 24px !important;
+        padding: 15px 30px !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        width: 200px;
+        text-align: center;
+    }
+
+    main#main,
+    .site-main {
+        padding-top: 100px !important;
+    }
+}
+
+/* Enhanced About Page Styles */
+.about-page .site-main {
+    padding-top: 100px;
+}
+
+.about-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.about-hero {
+    text-align: center;
+    padding: 60px 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    color: white;
+    margin-bottom: 60px;
+}
+
+.about-title {
+    font-size: 3.5rem;
+    font-weight: 300;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.about-subtitle {
+    font-size: 1.2rem;
+    color: #ccc;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.about-content {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about-main {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 60px;
+    margin-bottom: 80px;
+    align-items: start;
+}
+
+.about-photo {
+    position: sticky;
+    top: 120px;
+}
+
+.photographer-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.photographer-image:hover {
+    transform: scale(1.05);
+}
+
+.about-bio h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 500;
+}
+
+.about-bio h3 {
+    font-size: 1.5rem;
+    margin: 40px 0 20px 0;
+    color: #555;
+    font-weight: 500;
+}
+
+.about-bio p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.expertise-section {
+    margin-bottom: 80px;
+}
+
+.expertise-section h2 {
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #333;
+    font-weight: 500;
+}
+
+.expertise-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.expertise-item {
+    background: #f8f8f8;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.expertise-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.expertise-item h4 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 600;
+}
+
+.expertise-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.mission-section {
+    background: #1a1a1a;
+    color: white;
+    padding: 60px 40px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.mission-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.mission-section blockquote {
+    font-size: 1.3rem;
+    font-style: italic;
+    line-height: 1.8;
+    margin: 0;
+    color: #ccc;
+    position: relative;
+}
+
+.mission-section blockquote::before {
+    content: '"';
+    font-size: 4rem;
+    color: #555;
+    position: absolute;
+    top: -10px;
+    left: -30px;
+}
+
+.contact-section {
+    background: #f8f8f8;
+    padding: 50px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.contact-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 500;
+}
+
+.contact-section p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.contact-info {
+    margin-top: 30px;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+/* About Page Responsive Design */
+@media (max-width: 768px) {
+    .about-title {
+        font-size: 2.5rem;
+    }
+
+    .about-main {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-photo {
+        position: static;
+    }
+
+    .expertise-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-section {
+        padding: 40px 20px;
+    }
+
+    .contact-section {
+        padding: 30px 20px;
+    }
+
+    .mission-section blockquote::before {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-hero {
+        padding: 40px 0;
+    }
+
+    .about-title {
+        font-size: 2rem;
+    }
+
+    .about-subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* Universal Navigation Styling with Different Color Schemes */
+
+/* Default navigation styling for all pages (dark text) */
+.logo a,
+#logo-link,
+.fusion-title-heading a {
+    color: #000 !important;
+    text-decoration: none !important;
+}
+
+.logo a:hover,
+#logo-link:hover,
+.fusion-title-heading a:hover {
+    color: #333 !important;
+    text-decoration: none !important;
+}
+
+.awb-menu__main-a,
+.awb-menu__main-a .menu-text {
+    color: #000 !important;
+    text-decoration: none !important;
+    border: none !important;
+    outline: none !important;
+}
+
+.awb-menu__main-a:hover,
+.awb-menu__main-a:hover .menu-text {
+    color: #333 !important;
+    text-decoration: none !important;
+}
+
+.awb-menu__main-a:visited,
+.awb-menu__main-a:link {
+    color: #000 !important;
+    text-decoration: none !important;
+}
+
+/* Homepage specific styling (light text for overlay on images) */
+.fusion-body.home .logo a,
+.fusion-body.home #logo-link,
+.fusion-body.home .fusion-title-heading a {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+.fusion-body.home .logo a:hover,
+.fusion-body.home #logo-link:hover,
+.fusion-body.home .fusion-title-heading a:hover {
+    color: #ccc !important;
+    text-decoration: none !important;
+}
+
+.fusion-body.home .awb-menu__main-a,
+.fusion-body.home .awb-menu__main-a .menu-text {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+.fusion-body.home .awb-menu__main-a:hover,
+.fusion-body.home .awb-menu__main-a:hover .menu-text {
+    color: #ccc !important;
+    text-decoration: none !important;
+}
+
+.fusion-body.home .awb-menu__main-a:visited,
+.fusion-body.home .awb-menu__main-a:link {
+    color: #fff !important;
+    text-decoration: none !important;
+}
+
+/* Remove any default link styling */
+.fusion-tb-header a {
+    text-decoration: none !important;
+}
+
+/* Enhanced Mobile menu styling */
+@media (max-width: 768px) {
+
+    /* Mobile menu overlay background */
+    .awb-menu_desktop {
+        background: rgba(0, 0, 0, 0.95) !important;
+        backdrop-filter: blur(10px);
+    }
+
+    /* Mobile menu text styling - always white on dark background */
+    .awb-menu_desktop.mobile-open .awb-menu__main-a,
+    .awb-menu_desktop.mobile-open .awb-menu__main-a .menu-text {
+        color: #fff !important;
+        text-decoration: none !important;
+        padding: 15px 30px !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+        font-size: 18px !important;
+        transition: all 0.3s ease;
+    }
+
+    .awb-menu_desktop.mobile-open .awb-menu__main-a:hover,
+    .awb-menu_desktop.mobile-open .awb-menu__main-a:hover .menu-text {
+        color: #ccc !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+    }
+
+    /* Mobile menu active state */
+    .awb-menu_desktop.mobile-open .current-menu-item .awb-menu__main-a,
+    .awb-menu_desktop.mobile-open .current-menu-item .awb-menu__main-a .menu-text {
+        color: #fff !important;
+        background: rgba(255, 255, 255, 0.2) !important;
+    }
+
+    /* Mobile hamburger menu positioning */
+    .mobile-menu-toggle {
+        position: relative !important;
+        z-index: 1001 !important;
+    }
+
+    /* Ensure proper mobile menu positioning */
+    .awb-menu_desktop.mobile-open {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: 1000 !important;
+        padding-top: 100px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: flex-start !important;
+        align-items: center !important;
+    }
+
+    .awb-menu_desktop.mobile-open .awb-menu__main-ul {
+        flex-direction: column !important;
+        gap: 0 !important;
+        width: 100% !important;
+        max-width: 300px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+}
