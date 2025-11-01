@@ -15,7 +15,8 @@
                         style="--awb-margin-top:0px;--awb-margin-bottom:0px;--awb-font-size:40px;">
                         <div class="fusion-title-heading title-heading-left title-heading-tag"
                             style="font-family:&quot;Raleway&quot;;font-style:normal;font-weight:400;margin:0;font-size:1em;letter-spacing:-1px;text-transform:uppercase;line-height:40px;">
-                            <a href="#" id="logo-link" class="awb-custom-text-color awb-custom-text-hover-color"
+                            <a href="index.html" id="logo-link"
+                                class="awb-custom-text-color awb-custom-text-hover-color"
                                 target="_self">Andrea<strong>Aimar</strong></a>
                         </div>
                     </div>
@@ -67,7 +68,7 @@
                                     class="awb-menu__main-background-default awb-menu__main-background-default_fade"></span>
                                 <span
                                     class="awb-menu__main-background-active awb-menu__main-background-active_fade"></span>
-                                <a href="#" class="awb-menu__main-a awb-menu__main-a_regular nav-stories">
+                                <a href="stories.html" class="awb-menu__main-a awb-menu__main-a_regular nav-stories">
                                     <span class="menu-text">STORIES</span>
                                 </a>
                             </li>
@@ -77,7 +78,7 @@
                                     class="awb-menu__main-background-default awb-menu__main-background-default_fade"></span>
                                 <span
                                     class="awb-menu__main-background-active awb-menu__main-background-active_fade"></span>
-                                <a href="#" class="awb-menu__main-a awb-menu__main-a_regular nav-stories1">
+                                <a href="stories1.html" class="awb-menu__main-a awb-menu__main-a_regular nav-stories1">
                                     <span class="menu-text">STORIES1</span>
                                 </a>
                             </li>
@@ -87,7 +88,7 @@
                                     class="awb-menu__main-background-default awb-menu__main-background-default_fade"></span>
                                 <span
                                     class="awb-menu__main-background-active awb-menu__main-background-active_fade"></span>
-                                <a href="#" class="awb-menu__main-a awb-menu__main-a_regular nav-stories2">
+                                <a href="stories2.html" class="awb-menu__main-a awb-menu__main-a_regular nav-stories2">
                                     <span class="menu-text">STORIES2</span>
                                 </a>
                             </li>
@@ -97,7 +98,7 @@
                                     class="awb-menu__main-background-default awb-menu__main-background-default_fade"></span>
                                 <span
                                     class="awb-menu__main-background-active awb-menu__main-background-active_fade"></span>
-                                <a href="#" class="awb-menu__main-a awb-menu__main-a_regular nav-about">
+                                <a href="about.html" class="awb-menu__main-a awb-menu__main-a_regular nav-about">
                                     <span class="menu-text">ABOUT</span>
                                 </a>
                             </li>
@@ -148,30 +149,49 @@
     // Set correct navigation links based on current directory
     document.addEventListener('DOMContentLoaded', function () {
         const currentPath = window.location.pathname;
-        const isInSubfolder = currentPath.includes('/story-detail');
+        // Check for story-detail folders (works with both / and \ path separators)
+        const isInSubfolder = currentPath.includes('/story-detail') || currentPath.includes('\\story-detail') ||
+            currentPath.includes('story-detail1') || currentPath.includes('story-detail2');
         const pathPrefix = isInSubfolder ? '../' : '';
+
+        console.log('Current path:', currentPath);
+        console.log('Is in subfolder:', isInSubfolder);
+        console.log('Path prefix:', pathPrefix);
 
         // Set logo link
         const logoLink = document.getElementById('logo-link');
         if (logoLink) {
-            logoLink.href = pathPrefix + 'index2.html';
+            logoLink.href = pathPrefix + 'index.html';
+            console.log('Logo link set to:', logoLink.href);
         }
 
-        // Set navigation links
+        // Set navigation links with more specific selectors
         const navStories = document.querySelector('.nav-stories');
         const navStories1 = document.querySelector('.nav-stories1');
         const navStories2 = document.querySelector('.nav-stories2');
         const navAbout = document.querySelector('.nav-about');
 
-        if (navStories) navStories.href = pathPrefix + 'stories.html';
-        if (navStories1) navStories1.href = pathPrefix + 'stories1.html';
-        if (navStories2) navStories2.href = pathPrefix + 'stories2.html';
-        if (navAbout) navAbout.href = pathPrefix + 'about.html';
+        if (navStories) {
+            navStories.href = pathPrefix + 'stories.html';
+            console.log('Stories link set to:', navStories.href);
+        }
+        if (navStories1) {
+            navStories1.href = pathPrefix + 'stories1.html';
+            console.log('Stories1 link set to:', navStories1.href);
+        }
+        if (navStories2) {
+            navStories2.href = pathPrefix + 'stories2.html';
+            console.log('Stories2 link set to:', navStories2.href);
+        }
+        if (navAbout) {
+            navAbout.href = pathPrefix + 'about.html';
+            console.log('About link set to:', navAbout.href);
+        }
     });
 
     // Highlight current page in navigation
     document.addEventListener('DOMContentLoaded', function () {
-        const currentPage = window.location.pathname.split('/').pop() || 'index2.html';
+        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
         const menuItems = document.querySelectorAll('.awb-menu__main-a');
 
         menuItems.forEach(item => {
@@ -182,8 +202,8 @@
 
             // Add active class to current page
             if (href && href.includes(currentPage) ||
-                (currentPage === 'index2.html' && href && href.includes('index2.html')) ||
-                (currentPage === '' && href && href.includes('index2.html'))) {
+                (currentPage === 'index.html' && href && href.includes('index.html')) ||
+                (currentPage === '' && href && href.includes('index.html'))) {
                 item.closest('li').classList.add('current-menu-item');
             }
         });

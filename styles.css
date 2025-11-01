@@ -1183,8 +1183,11 @@ body.menu-open {
     text-decoration: none !important;
 }
 
+/* Navigation menu styling - All states with strong specificity */
 .awb-menu__main-a,
-.awb-menu__main-a .menu-text {
+.awb-menu__main-a .menu-text,
+.fusion-tb-header .awb-menu__main-a,
+.fusion-tb-header .awb-menu__main-a .menu-text {
     color: #000 !important;
     text-decoration: none !important;
     border: none !important;
@@ -1192,13 +1195,21 @@ body.menu-open {
 }
 
 .awb-menu__main-a:hover,
-.awb-menu__main-a:hover .menu-text {
+.awb-menu__main-a:hover .menu-text,
+.fusion-tb-header .awb-menu__main-a:hover,
+.fusion-tb-header .awb-menu__main-a:hover .menu-text {
     color: #333 !important;
     text-decoration: none !important;
 }
 
 .awb-menu__main-a:visited,
-.awb-menu__main-a:link {
+.awb-menu__main-a:link,
+.awb-menu__main-a:active,
+.awb-menu__main-a:focus,
+.fusion-tb-header .awb-menu__main-a:visited,
+.fusion-tb-header .awb-menu__main-a:link,
+.fusion-tb-header .awb-menu__main-a:active,
+.fusion-tb-header .awb-menu__main-a:focus {
     color: #000 !important;
     text-decoration: none !important;
 }
@@ -1219,19 +1230,29 @@ body.menu-open {
 }
 
 .fusion-body.home .awb-menu__main-a,
-.fusion-body.home .awb-menu__main-a .menu-text {
+.fusion-body.home .awb-menu__main-a .menu-text,
+.fusion-body.home .fusion-tb-header .awb-menu__main-a,
+.fusion-body.home .fusion-tb-header .awb-menu__main-a .menu-text {
     color: #fff !important;
     text-decoration: none !important;
 }
 
 .fusion-body.home .awb-menu__main-a:hover,
-.fusion-body.home .awb-menu__main-a:hover .menu-text {
+.fusion-body.home .awb-menu__main-a:hover .menu-text,
+.fusion-body.home .fusion-tb-header .awb-menu__main-a:hover,
+.fusion-body.home .fusion-tb-header .awb-menu__main-a:hover .menu-text {
     color: #ccc !important;
     text-decoration: none !important;
 }
 
 .fusion-body.home .awb-menu__main-a:visited,
-.fusion-body.home .awb-menu__main-a:link {
+.fusion-body.home .awb-menu__main-a:link,
+.fusion-body.home .awb-menu__main-a:active,
+.fusion-body.home .awb-menu__main-a:focus,
+.fusion-body.home .fusion-tb-header .awb-menu__main-a:visited,
+.fusion-body.home .fusion-tb-header .awb-menu__main-a:link,
+.fusion-body.home .fusion-tb-header .awb-menu__main-a:active,
+.fusion-body.home .fusion-tb-header .awb-menu__main-a:focus {
     color: #fff !important;
     text-decoration: none !important;
 }
@@ -1303,4 +1324,53 @@ body.menu-open {
         margin: 0 !important;
         padding: 0 !important;
     }
+}
+
+/* COMPREHENSIVE LINK COLOR OVERRIDE - Eliminate all blue colors */
+/* Force all navigation links to use proper colors */
+.fusion-tb-header a,
+.fusion-tb-header a:link,
+.fusion-tb-header a:visited,
+.fusion-tb-header a:active,
+.fusion-tb-header a:focus,
+.awb-menu a,
+.awb-menu a:link,
+.awb-menu a:visited,
+.awb-menu a:active,
+.awb-menu a:focus,
+nav a,
+nav a:link,
+nav a:visited,
+nav a:active,
+nav a:focus {
+    color: inherit !important;
+    text-decoration: none !important;
+}
+
+/* Override any browser default link colors for navigation */
+.fusion-body:not(.home) .fusion-tb-header a,
+.fusion-body:not(.home) .fusion-tb-header a:link,
+.fusion-body:not(.home) .fusion-tb-header a:visited,
+.fusion-body:not(.home) .fusion-tb-header a:active,
+.fusion-body:not(.home) .fusion-tb-header a:focus,
+.fusion-body:not(.home) .awb-menu a,
+.fusion-body:not(.home) .awb-menu a:link,
+.fusion-body:not(.home) .awb-menu a:visited,
+.fusion-body:not(.home) .awb-menu a:active,
+.fusion-body:not(.home) .awb-menu a:focus {
+    color: #000 !important;
+}
+
+/* Force homepage navigation to white */
+.fusion-body.home .fusion-tb-header a,
+.fusion-body.home .fusion-tb-header a:link,
+.fusion-body.home .fusion-tb-header a:visited,
+.fusion-body.home .fusion-tb-header a:active,
+.fusion-body.home .fusion-tb-header a:focus,
+.fusion-body.home .awb-menu a,
+.fusion-body.home .awb-menu a:link,
+.fusion-body.home .awb-menu a:visited,
+.fusion-body.home .awb-menu a:active,
+.fusion-body.home .awb-menu a:focus {
+    color: #fff !important;
 }

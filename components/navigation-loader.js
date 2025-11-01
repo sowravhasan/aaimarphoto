@@ -11,9 +11,21 @@ async function loadNavigation() {
     let navigationPath = "components/navigation.html";
 
     // Check if we're in a subdirectory (like story-detail folders)
-    if (window.location.pathname.includes("/story-detail")) {
+    // Handle both forward and backward slashes, and all story-detail variants
+    const currentPath = window.location.pathname;
+    const isInSubfolder =
+      currentPath.includes("/story-detail") ||
+      currentPath.includes("\\story-detail") ||
+      currentPath.includes("story-detail1") ||
+      currentPath.includes("story-detail2");
+
+    if (isInSubfolder) {
       navigationPath = "../components/navigation.html";
     }
+
+    console.log("Loading navigation from:", navigationPath);
+    console.log("Current path:", currentPath);
+    console.log("Is in subfolder:", isInSubfolder);
 
     const response = await fetch(navigationPath);
     if (!response.ok) {
@@ -67,7 +79,7 @@ function createFallbackNavigation() {
             <div class="fusion-fullwidth" style="padding: 30px 40px;">
                 <div class="fusion-builder-row fusion-row">
                     <div class="logo">
-                        <a href="index2.html">Andrea<strong>Aimar</strong></a>
+                        <a href="index.html">Andrea<strong>Aimar</strong></a>
                     </div>
                     <nav class="awb-menu_desktop">
                         <ul class="awb-menu__main-ul">
@@ -95,8 +107,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Function to update active menu item
 function updateActiveMenuItem() {
-  const currentPage =
-    window.location.pathname.split("/").pop() || "index2.html";
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
   const menuItems = document.querySelectorAll(".awb-menu__main-a");
 
   menuItems.forEach((item) => {
@@ -109,8 +120,8 @@ function updateActiveMenuItem() {
     // Add active class to current page
     if (
       href === currentPage ||
-      (currentPage === "index2.html" && href === "index2.html") ||
-      (currentPage === "" && href === "index2.html")
+      (currentPage === "index.html" && href === "index.html") ||
+      (currentPage === "" && href === "index.html")
     ) {
       listItem.classList.add("current-menu-item");
     }
