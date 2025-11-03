@@ -95,6 +95,17 @@
 
   // Setup pagination
   function setupPagination() {
+    // Check if pagination exists, if not, skip pagination setup
+    if (
+      elements.pagination.length === 0 ||
+      elements.paginationItems.length === 0
+    ) {
+      console.log(
+        "FSVS Enhanced: No pagination found, running without pagination dots"
+      );
+      return;
+    }
+
     if (elements.paginationItems.length !== state.totalSlides) {
       console.warn("FSVS Enhanced: Pagination items count mismatch");
       return;
@@ -187,8 +198,11 @@
 
   // Update pagination state
   function updatePagination() {
-    elements.paginationItems.removeClass("active");
-    elements.paginationItems.eq(state.currentSlide).addClass("active");
+    // Only update pagination if it exists
+    if (elements.paginationItems.length > 0) {
+      elements.paginationItems.removeClass("active");
+      elements.paginationItems.eq(state.currentSlide).addClass("active");
+    }
   }
 
   // Navigation functions
@@ -311,9 +325,11 @@
       }
     });
 
-    // Pause auto-slide on hover
-    elements.pagination.on("mouseenter", stopAutoSlide);
-    elements.pagination.on("mouseleave", startAutoSlide);
+    // Pause auto-slide on hover (only if pagination exists)
+    if (elements.pagination.length > 0) {
+      elements.pagination.on("mouseenter", stopAutoSlide);
+      elements.pagination.on("mouseleave", startAutoSlide);
+    }
 
     // Resume auto-slide when window gains focus
     $(window).on("focus", startAutoSlide);

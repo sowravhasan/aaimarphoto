@@ -4,140 +4,215 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Fabio Bucciarelli</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>About - Andrea Aimar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles-clean.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="components/navigation-loader.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'raleway': ['Raleway', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body class="fusion-body">
-    <div id="page" class="hfeed site">
-        <!-- Navigation Component will be loaded here automatically -->
-        <!-- Navigation Component will be loaded here automatically -->
-        <header id="masthead" class="site-header fusion-header" role="banner">
-            <!-- Navigation content loaded by navigation-loader.js -->
+<body class="bg-white">
+    <div id="page" class="min-h-screen">
+        <!-- Clean Tailwind Navigation -->
+        <header class="top-0 left-0 right-0 z-50 bg-transparent">
+            <nav class="max-w-screen-2xl mx-auto px-3 py-8">
+                <div class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0">
+                        <a href="index.html"
+                            class="text-black font-raleway text-2xl md:text-4xl font-normal uppercase tracking-tighter hover:opacity-80 transition-opacity duration-300">
+                            Andrea Aimar
+                        </a>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center space-x-10">
+                        <a href="stories.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                            STORIES
+                        </a>
+                        <a href="stories1.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                            STORIES1
+                        </a>
+                        <a href="stories2.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                            STORIES2
+                        </a>
+                        <a href="about.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b-2 border-black">
+                            ABOUT
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn" class="text-black focus:outline-none">
+                            <div class="hamburger-menu">
+                                <span class="block w-6 h-0.5 bg-black mb-1 transition-all duration-300"></span>
+                                <span class="block w-6 h-0.5 bg-black mb-1 transition-all duration-300"></span>
+                                <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Navigation Menu -->
+                <div id="mobile-menu" class="md:hidden hidden mt-4">
+                    <div class="space-y-4">
+                        <a href="stories.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4 rounded transition-all duration-300">
+                            STORIES
+                        </a>
+                        <a href="stories1.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4 rounded transition-all duration-300">
+                            STORIES1
+                        </a>
+                        <a href="stories2.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4 rounded transition-all duration-300">
+                            STORIES2
+                        </a>
+                        <a href="about.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 bg-gray-100 px-4 rounded">
+                            ABOUT
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Mobile Menu JavaScript -->
+            <script>
+                document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const hamburger = this.querySelector('.hamburger-menu');
+
+                    mobileMenu.classList.toggle('hidden');
+
+                    // Animate hamburger to X
+                    if (mobileMenu.classList.contains('hidden')) {
+                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
+                        hamburger.querySelector('span:nth-child(2)').style.opacity = '1';
+                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(0deg) translate(0, 0)';
+                    } else {
+                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(45deg) translate(4px, 4px)';
+                        hamburger.querySelector('span:nth-child(2)').style.opacity = '0';
+                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                    }
+                });
+
+                // Close mobile menu when clicking on links
+                document.querySelectorAll('#mobile-menu a').forEach(link => {
+                    link.addEventListener('click', function () {
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        const hamburger = document.querySelector('.hamburger-menu');
+
+                        mobileMenu.classList.add('hidden');
+                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
+                        hamburger.querySelector('span:nth-child(2)').style.opacity = '1';
+                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(0deg) translate(0, 0)';
+                    });
+                });
+            </script>
         </header>
 
         <!-- Main Content -->
-        <main id="main" class="site-main about-page" style="padding-top: 100px;">
-            <section id="content" style="width: 100%;">
-                <div id="post-about" class="post-about page type-page status-publish hentry">
-                    <div class="post-content">
-                        <div class="about-container">
+        <main class="pt-32 pb-20">
+            <div class="max-w-4xl mx-auto px-6">
+                <!-- Hero Section -->
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-raleway font-light text-black mb-4">About Andrea Aimar</h1>
+                    <p class="text-xl text-gray-600 font-raleway">Photojournalist & Documentary Photographer</p>
+                </div>
 
-                            <!-- Hero Section -->
-                            <div class="about-hero">
-                                <h1 class="about-title">About Andrea Aimar</h1>
-                                <p class="about-subtitle">Photojournalist & Documentary Photographer</p>
-                            </div>
+                <!-- Photo & Bio Section -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
+                    <!-- Photo -->
+                    <div class="order-1 lg:order-1">
+                        <div class="relative overflow-hidden rounded-lg aspect-[3/4] bg-gray-200">
+                            <img src="photos/gallery 31.jpg" alt="Andrea Aimar" class="w-full h-full object-cover">
+                        </div>
+                    </div>
 
-                            <!-- Main Content -->
-                            <div class="about-content">
-
-                                <!-- Photo & Bio Section -->
-                                <div class="about-main">
-                                    <div class="about-photo">
-                                        <img src="photos/gallery 31.jpg" alt="Andrea Aimar" class="photographer-image">
-                                    </div>
-
-                                    <div class="about-bio">
-                                        <h2>Professional Journey</h2>
-                                        <p>Andrea Aimar is an accomplished Italian photojournalist and documentary
-                                            photographer who has dedicated their career to capturing the human stories
-                                            behind global conflicts and social issues. With a keen eye for detail and an
-                                            unwavering commitment to truth-telling, Andrea's work brings light to the
-                                            world's most pressing humanitarian crises.</p>
-
-                                        <p>Their photographic journey has taken them to conflict zones and areas of
-                                            political upheaval across the globe, from the war-torn regions of Syria and
-                                            Ukraine to the challenging terrains of Afghanistan and South Sudan. Through
-                                            their lens, Andrea captures not just the immediate impact of conflict, but
-                                            the resilience and humanity that persists even in the darkest circumstances.
-                                        </p>
-
-                                        <h3>Recognition & Publications</h3>
-                                        <p>Andrea's powerful imagery has been featured in major international
-                                            publications including The New York Times, The Guardian, Le Monde, Der
-                                            Spiegel, and numerous other prestigious outlets. Their work has been
-                                            exhibited in galleries and museums worldwide, bringing crucial attention to
-                                            forgotten conflicts and underreported stories.</p>
-                                    </div>
-                                </div>
-
-                                <!-- Expertise Section -->
-                                <div class="expertise-section">
-                                    <h2>Areas of Expertise</h2>
-                                    <div class="expertise-grid">
-                                        <div class="expertise-item">
-                                            <h4>Conflict Photography</h4>
-                                            <p>Documenting wars, civil unrest, and their impact on civilian populations
-                                            </p>
-                                        </div>
-                                        <div class="expertise-item">
-                                            <h4>Humanitarian Stories</h4>
-                                            <p>Highlighting refugee crises, displacement, and human rights issues</p>
-                                        </div>
-                                        <div class="expertise-item">
-                                            <h4>Political Documentation</h4>
-                                            <p>Covering elections, protests, and political transitions worldwide</p>
-                                        </div>
-                                        <div class="expertise-item">
-                                            <h4>Social Issues</h4>
-                                            <p>Exploring poverty, inequality, and social justice movements</p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <!-- Contact Section -->
-                                <div class="contact-section">
-                                    <h2>Professional Contact</h2>
-                                    <p>For assignments, exhibitions, or licensing inquiries, Andrea is available for
-                                        projects worldwide. Their extensive experience in challenging environments and
-                                        commitment to ethical journalism make them a trusted partner for media
-                                        organizations and humanitarian agencies.</p>
-
-                                    <div class="contact-info">
-                                        <p><strong>Email:</strong> info@andreaaimar.com</p>
-                                        <p><strong>Instagram:</strong> @andreaaimar</p>
-                                        <p><strong>Based:</strong> Italy</p>
-                                    </div>
-                                </div>
-
-                            </div>
+                    <!-- Bio Content -->
+                    <div class="order-2 lg:order-2 space-y-6">
+                        <div>
+                            <h2 class="text-2xl font-raleway font-medium text-black mb-4">Professional Journey</h2>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Andrea Aimar is an accomplished Italian photojournalist and documentary photographer who
+                                has dedicated their career to capturing the human stories behind global conflicts and
+                                social issues. With a keen eye for detail and an unwavering commitment to truth-telling,
+                                Andrea's work brings light to the world's most pressing humanitarian crises.
+                            </p>
+                            <p class="text-gray-700 leading-relaxed mb-4">
+                                Over the past decade, Andrea has covered major conflicts and social movements across the
+                                globe, from the aftermath of the Taliban's return in Afghanistan to the ongoing war in
+                                Ukraine. Their work has been featured in leading international publications and has
+                                earned recognition for its powerful storytelling and ethical approach to conflict
+                                photography.
+                            </p>
+                            <p class="text-gray-700 leading-relaxed">
+                                Based between Italy and the field, Andrea continues to document the resilience of
+                                communities affected by conflict, always seeking to preserve the dignity of those whose
+                                stories they tell.
+                            </p>
                         </div>
 
-                        <!-- Mission Statement -->
-                        <div class="mission-section">
-                            <h2>Mission Statement</h2>
-                            <blockquote>
-                                "Photography is more than capturing moments—it's about bearing witness to history and
-                                giving voice to those who might otherwise remain unheard. Every image tells a story, and
-                                every story matters."
-                            </blockquote>
+                        <!-- Awards & Recognition -->
+                        <div>
+                            <h3 class="text-xl font-raleway font-medium text-black mb-3">Awards & Recognition</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• World Press Photo Award Nominee (2023)</li>
+                                <li>• Italian Photojournalism Award (2022)</li>
+                                <li>• Conflict Photography Ethics Award (2021)</li>
+                                <li>• Human Rights Documentation Prize (2020)</li>
+                            </ul>
                         </div>
 
+                        <!-- Publications -->
+                        <div>
+                            <h3 class="text-xl font-raleway font-medium text-black mb-3">Publications</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li>• The Guardian</li>
+                                <li>• National Geographic</li>
+                                <li>• Time Magazine</li>
+                                <li>• Reuters</li>
+                                <li>• Associated Press</li>
+                                <li>• BBC News</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </main>
 
-        <!-- Footer -->
-        <footer class="fusion-footer">
-            <div class="fusion-footer-widget-area fusion-widget-area">
-                <div class="fusion-footer-copyright-area"
-                    style="padding: 30px 0; text-align: center; border-top: 1px solid #333;">
-                    <div class="fusion-copyright-content" style="color: #888; font-size: 14px;">
-                        <p>&copy; 2024 Fabio Bucciarelli. All rights reserved.</p>
+                <!-- Contact Section -->
+                <div class="text-center bg-gray-50 rounded-lg p-8">
+                    <h3 class="text-2xl font-raleway font-medium text-black mb-4">Get In Touch</h3>
+                    <p class="text-gray-600 mb-6">For assignments, exhibitions, or collaboration inquiries</p>
+                    <div class="space-y-2">
+                        <p class="text-gray-700">
+                            <i class="fas fa-envelope mr-2"></i>
+                            contact@andreaaimar.com
+                        </p>
+                        <p class="text-gray-700">
+                            <i class="fab fa-instagram mr-2"></i>
+                            @andreaaimar_photo
+                        </p>
                     </div>
                 </div>
             </div>
-        </footer>
+        </main>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="script.js"></script>
 </body>
 
 </html>

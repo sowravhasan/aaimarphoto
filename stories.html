@@ -5,446 +5,331 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Picture Stories - Andrea Aimar</title>
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="styles-clean.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="components/navigation-loader.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'raleway': ['Raleway', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body class="fusion-body">
-    <div id="page" class="hfeed site">
-        <!-- Navigation Component will be loaded here automatically -->
-        <header id="masthead" class="site-header fusion-header" role="banner">
-            <!-- Navigation content loaded by navigation-loader.js -->
+<body class="bg-white">
+    <div id="page" class="min-h-screen">
+        <!-- Clean Tailwind Navigation -->
+        <header class="top-0 left-0 right-0 z-50 bg-transparent">
+            <nav class="max-w-screen-2xl mx-auto px-3 py-8">
+                <div class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0">
+                        <a href="index.html"
+                            class="text-black font-raleway text-2xl md:text-4xl font-normal uppercase tracking-tighter hover:opacity-80 transition-opacity duration-300">
+                            Andrea Aimar
+                        </a>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center space-x-10">
+                        <a href="stories.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b-2 border-black">
+                            STORIES
+                        </a>
+                        <a href="stories1.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                            STORIES1
+                        </a>
+                        <a href="stories2.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                            STORIES2
+                        </a>
+                        <a href="about.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                            ABOUT
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn" class="text-black focus:outline-none">
+                            <div class="hamburger-menu">
+                                <span class="block w-6 h-0.5 bg-black mb-1 transition-all duration-300"></span>
+                                <span class="block w-6 h-0.5 bg-black mb-1 transition-all duration-300"></span>
+                                <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Navigation Menu -->
+                <div id="mobile-menu" class="md:hidden hidden mt-4">
+                    <div class="space-y-4">
+                        <a href="stories.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3">
+                            STORIES
+                        </a>
+                        <a href="stories1.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 hover:opacity-70 transition-all duration-300">
+                            STORIES1
+                        </a>
+                        <a href="stories2.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 hover:opacity-70 transition-all duration-300">
+                            STORIES2
+                        </a>
+                        <a href="about.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 hover:opacity-70 transition-all duration-300">
+                            ABOUT
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Mobile Menu JavaScript -->
+            <script>
+                document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const hamburger = this.querySelector('.hamburger-menu');
+
+                    mobileMenu.classList.toggle('hidden');
+
+                    // Animate hamburger to X
+                    if (mobileMenu.classList.contains('hidden')) {
+                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
+                        hamburger.querySelector('span:nth-child(2)').style.opacity = '1';
+                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(0deg) translate(0, 0)';
+                    } else {
+                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(45deg) translate(4px, 4px)';
+                        hamburger.querySelector('span:nth-child(2)').style.opacity = '0';
+                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                    }
+                });
+
+                // Close mobile menu when clicking on links
+                document.querySelectorAll('#mobile-menu a').forEach(link => {
+                    link.addEventListener('click', function () {
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        const hamburger = document.querySelector('.hamburger-menu');
+
+                        mobileMenu.classList.add('hidden');
+                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
+                        hamburger.querySelector('span:nth-child(2)').style.opacity = '1';
+                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(0deg) translate(0, 0)';
+                    });
+                });
+            </script>
         </header>
 
         <!-- Main Content -->
-        <main id="main" class="site-main" style="padding-top: 100px;">
-            <section id="content" style="width: 100%;">
-                <div id="post-28" class="post-28 page type-page status-publish hentry">
-                    <span class="entry-title rich-snippet-hidden">Picture Stories</span>
-                    <div class="post-content">
-                        <div
-                            class="fusion-fullwidth fullwidth-box fusion-builder-row-2 fusion-flex-container nonhundred-percent-fullwidth non-hundred-percent-height-scrolling">
-                            <div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap"
-                                style="max-width:1112.8px;margin-left: calc(-4% / 2 );margin-right: calc(-4% / 2 );">
+        <main class="pb-20">
+            <div class="max-w-7xl mx-auto px-6">
+                <!-- Page Title -->
+                <div class="text-center mb-16">
+                    <h1 class="text-4xl md:text-5xl font-raleway font-light text-black mb-4">Stories</h1>
+                    <p class="text-lg text-gray-600 font-raleway">Photojournalism and documentary projects</p>
+                </div>
+
+                <!-- Stories Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Story 1: Afghanistan -->
+                    <div class="group cursor-pointer">
+                        <a href="story-detail/afghanistan-after-the-taliban.html" class="block">
+                            <div class="relative overflow-hidden bg-gray-200 rounded-lg aspect-[4/3] mb-4">
+                                <img src="photos/gallery 1.jpg" alt="Afghanistan: After the Taliban"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                                 <div
-                                    class="fusion-layout-column fusion_builder_column fusion-builder-column-2 fusion_builder_column_1_1 1_1 fusion-flex-column">
-                                    <div
-                                        class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column">
-
-                                        <!-- Stories Grid -->
-                                        <div class="fusion-post-cards fusion-post-cards-1 fusion-grid-archive fusion-grid-columns-3"
-                                            style="--awb-column-spacing:10px;--awb-row-spacing:10px;">
-                                            <ul
-                                                class="fusion-grid fusion-grid-3 fusion-flex-align-items-flex-start fusion-grid-posts-cards fusion-grid-container-infinite">
-
-                                                <!-- Story 1: The Fall of Assad -->
-                                                <li
-                                                    class="fusion-layout-column fusion_builder_column fusion-flex-column single-archive-post post-card fusion-grid-column fusion-post-cards-grid-column">
-                                                    <div
-                                                        class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column">
-                                                        <div class="fusion-text fusion-text-no-margin subtitle">
-                                                            <p>Syria | December 2024</p>
-                                                        </div>
-                                                        <div
-                                                            class="fusion-title title fusion-sep-none fusion-title-text fusion-title-size-two">
-                                                            <h2 class="fusion-title-heading title-heading-left">
-                                                                <a href="story-detail/the-fall-of-assad.html"
-                                                                    class="awb-custom-text-color awb-custom-text-hover-color"
-                                                                    target="_self">
-                                                                    The Fall of Assad: The Legacy of a Dictator
-                                                                </a>
-                                                            </h2>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin">
-                                                            <p>
-                                                                <a href="story-detail/the-fall-of-assad.html">
-                                                                    <img loading="lazy" decoding="async" width="240"
-                                                                        height="160" src="photos/gallery 1.jpg"
-                                                                        class="attachment-copertine-report size-copertine-report wp-post-image"
-                                                                        alt="The Fall of Assad" />
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin myexcerpt">
-                                                            <p>The fall of Bashar al-Assad, between December 7 and 8,
-                                                                2024, marked the end of the Assad family's 53-year reign
-                                                                under the Alawite-inspired Baʿth Party. Hayat Tahrir
-                                                                al-Sham (HTS) seized power in just over ten [...]</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <!-- Story 2: The War in Lebanon -->
-                                                <li
-                                                    class="fusion-layout-column fusion_builder_column fusion-flex-column single-archive-post post-card fusion-grid-column fusion-post-cards-grid-column">
-                                                    <div
-                                                        class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column">
-                                                        <div class="fusion-text fusion-text-no-margin subtitle">
-                                                            <p>Lebanon | October 2024</p>
-                                                        </div>
-                                                        <div
-                                                            class="fusion-title title fusion-sep-none fusion-title-text fusion-title-size-two">
-                                                            <h2 class="fusion-title-heading title-heading-left">
-                                                                <a href="story-detail/the-war-in-lebanon.html"
-                                                                    class="awb-custom-text-color awb-custom-text-hover-color"
-                                                                    target="_self">
-                                                                    The War in Lebanon
-                                                                </a>
-                                                            </h2>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin">
-                                                            <p>
-                                                                <a href="story-detail/the-war-in-lebanon.html">
-                                                                    <img loading="lazy" decoding="async" width="240"
-                                                                        height="160" src="photos/gallery 6.jpg"
-                                                                        class="attachment-copertine-report size-copertine-report wp-post-image"
-                                                                        alt="The War in Lebanon" />
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin myexcerpt">
-                                                            <p>The recent war in Lebanon between Israel and Hezbollah is
-                                                                closely linked to escalating regional tensions,
-                                                                particularly the ongoing conflict in Gaza. What began as
-                                                                minor hostilities after October 7, 2023, spiraled into
-                                                                full-scale conflict [...]</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <!-- Story 3: South Sudan 2012-2022 -->
-                                                <li
-                                                    class="fusion-layout-column fusion_builder_column fusion-flex-column single-archive-post post-card fusion-grid-column fusion-post-cards-grid-column">
-                                                    <div
-                                                        class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column">
-                                                        <div class="fusion-text fusion-text-no-margin subtitle">
-                                                            <p>South Sudan | 2012 - 2022</p>
-                                                        </div>
-                                                        <div
-                                                            class="fusion-title title fusion-sep-none fusion-title-text fusion-title-size-two">
-                                                            <h2 class="fusion-title-heading title-heading-left">
-                                                                <a href="story-detail/south-sudan-2012-2022.html"
-                                                                    class="awb-custom-text-color awb-custom-text-hover-color"
-                                                                    target="_self">
-                                                                    South Sudan 2012-2022
-                                                                </a>
-                                                            </h2>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin">
-                                                            <p>
-                                                                <a href="story-detail/south-sudan-2012-2022.html">
-                                                                    <img loading="lazy" decoding="async" width="240"
-                                                                        height="160" src="photos/gallery 31.jpg"
-                                                                        class="attachment-copertine-report size-copertine-report wp-post-image"
-                                                                        alt="" />
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin myexcerpt">
-                                                            <p>South Sudan – The identity of the World's Youngest
-                                                                Country. Fabio Bucciarelli's South Sudan: The Identity
-                                                                of the World's Newest Country provides a record of the
-                                                                human costs of [...]</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <!-- Story 4: Haiti -->
-                                                <li
-                                                    class="fusion-layout-column fusion_builder_column fusion-flex-column single-archive-post post-card fusion-grid-column fusion-post-cards-grid-column">
-                                                    <div
-                                                        class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column">
-                                                        <div class="fusion-text fusion-text-no-margin subtitle">
-                                                            <p>Haiti | July 2024</p>
-                                                        </div>
-                                                        <div
-                                                            class="fusion-title title fusion-sep-none fusion-title-text fusion-title-size-two">
-                                                            <h2 class="fusion-title-heading title-heading-left">
-                                                                <a href="story-detail/haiti-chaos-and-violence.html"
-                                                                    class="awb-custom-text-color awb-custom-text-hover-color"
-                                                                    target="_self">
-                                                                    A Nation Trapped in Chaos and Violence
-                                                                </a>
-                                                            </h2>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin">
-                                                            <p>
-                                                                <a href="story-detail/haiti-chaos-and-violence.html">
-                                                                    <img loading="lazy" decoding="async" width="240"
-                                                                        height="160" src="photos/gallery 11.jpg"
-                                                                        class="attachment-copertine-report size-copertine-report wp-post-image"
-                                                                        alt="" />
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin myexcerpt">
-                                                            <p>Haiti, the first independent black republic, has a
-                                                                history marked by conquests and tragedies. After gaining
-                                                                independence in 1804, it experienced decades of
-                                                                political instability, economic crises, and natural
-                                                                disasters [...]</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <!-- Story 5: Flying Over Gaza -->
-                                                <li
-                                                    class="fusion-layout-column fusion_builder_column fusion-flex-column single-archive-post post-card fusion-grid-column fusion-post-cards-grid-column">
-                                                    <div
-                                                        class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column">
-                                                        <div class="fusion-text fusion-text-no-margin subtitle">
-                                                            <p>Gaza Strip | May 2024</p>
-                                                        </div>
-                                                        <div
-                                                            class="fusion-title title fusion-sep-none fusion-title-text fusion-title-size-two">
-                                                            <h2 class="fusion-title-heading title-heading-left">
-                                                                <a href="story-detail/flying-over-gaza.html"
-                                                                    class="awb-custom-text-color awb-custom-text-hover-color"
-                                                                    target="_self">
-                                                                    Flying Over Gaza
-                                                                </a>
-                                                            </h2>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin">
-                                                            <p>
-                                                                <a href="story-detail/flying-over-gaza.html">
-                                                                    <img loading="lazy" decoding="async" width="240"
-                                                                        height="160" src="photos/gallery 9.jpg"
-                                                                        class="attachment-copertine-report size-copertine-report wp-post-image"
-                                                                        alt="" />
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin myexcerpt">
-                                                            <p>For La Repubblica, together with Fabio Tonacci, we were
-                                                                the first Italian journalists to fly over the skies of
-                                                                Gaza, destroyed by over 5 months of continuous Israeli
-                                                                bombardments [...]</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <!-- Story 6: Occupied Territories -->
-                                                <li
-                                                    class="fusion-layout-column fusion_builder_column fusion-flex-column single-archive-post post-card fusion-grid-column fusion-post-cards-grid-column">
-                                                    <div
-                                                        class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column">
-                                                        <div class="fusion-text fusion-text-no-margin subtitle">
-                                                            <p>West Bank | April 2024</p>
-                                                        </div>
-                                                        <div
-                                                            class="fusion-title title fusion-sep-none fusion-title-text fusion-title-size-two">
-                                                            <h2 class="fusion-title-heading title-heading-left">
-                                                                <a href="story-detail/occupied-territories.html"
-                                                                    class="awb-custom-text-color awb-custom-text-hover-color"
-                                                                    target="_self">
-                                                                    Occupied Territories
-                                                                </a>
-                                                            </h2>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin">
-                                                            <p>
-                                                                <a href="story-detail/occupied-territories.html">
-                                                                    <img loading="lazy" decoding="async" width="240"
-                                                                        height="160" src="photos/gallery 1.jpg"
-                                                                        class="attachment-copertine-report size-copertine-report wp-post-image"
-                                                                        alt="" />
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin myexcerpt">
-                                                            <p>In the Nur Shams refugee camp in Tulkarem, Sarah, her
-                                                                hands trembling, filmed with her phone the harrowing
-                                                                death of her fifteen-year-old brother Taha, shot down by
-                                                                Israeli soldiers [...]</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <!-- Story 7: Echoes of War in the West Bank -->
-                                                <li
-                                                    class="fusion-layout-column fusion_builder_column fusion-flex-column single-archive-post post-card fusion-grid-column fusion-post-cards-grid-column">
-                                                    <div
-                                                        class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column">
-                                                        <div class="fusion-text fusion-text-no-margin subtitle">
-                                                            <p>West Bank | Oct. & Nov. 2023</p>
-                                                        </div>
-                                                        <div
-                                                            class="fusion-title title fusion-sep-none fusion-title-text fusion-title-size-two">
-                                                            <h2 class="fusion-title-heading title-heading-left">
-                                                                <a href="story-detail/echoes-of-war-west-bank.html"
-                                                                    class="awb-custom-text-color awb-custom-text-hover-color"
-                                                                    target="_self">
-                                                                    Echoes of War in the West Bank
-                                                                </a>
-                                                            </h2>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin">
-                                                            <p>
-                                                                <a href="story-detail/echoes-of-war-west-bank.html">
-                                                                    <img loading="lazy" decoding="async" width="240"
-                                                                        height="160" src="photos/gallery 6.jpg"
-                                                                        class="attachment-copertine-report size-copertine-report wp-post-image"
-                                                                        alt="" />
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin myexcerpt">
-                                                            <p>On October 7, 2023, Hamas, the Palestinian Islamist
-                                                                militant group, orchestrated a meticulously planned
-                                                                series of coordinated attacks from the Gaza Strip into
-                                                                bordering areas in Israel [...]</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <!-- Story 8: Memories -->
-                                                <li
-                                                    class="fusion-layout-column fusion_builder_column fusion-flex-column single-archive-post post-card fusion-grid-column fusion-post-cards-grid-column">
-                                                    <div
-                                                        class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column">
-                                                        <div class="fusion-text fusion-text-no-margin subtitle">
-                                                            <p>World | Ongoing Since 2015</p>
-                                                        </div>
-                                                        <div
-                                                            class="fusion-title title fusion-sep-none fusion-title-text fusion-title-size-two">
-                                                            <h2 class="fusion-title-heading title-heading-left">
-                                                                <a href="story-detail/memories.html"
-                                                                    class="awb-custom-text-color awb-custom-text-hover-color"
-                                                                    target="_self">
-                                                                    Memories
-                                                                </a>
-                                                            </h2>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin">
-                                                            <p>
-                                                                <a href="story-detail/memories.html">
-                                                                    <img loading="lazy" decoding="async" width="240"
-                                                                        height="160" src="photos/gallery 31.jpg"
-                                                                        class="attachment-copertine-report size-copertine-report wp-post-image"
-                                                                        alt="" />
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin myexcerpt">
-                                                            <p>In recent years, my camera has been capturing the harsh
-                                                                realities of wars, famines, revolutions, and
-                                                                humanitarian crises worldwide, amassing a wealth of
-                                                                images that have been published internationally [...]
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <!-- Story 9: Floods in Emilia-Romagna -->
-                                                <li
-                                                    class="fusion-layout-column fusion_builder_column fusion-flex-column single-archive-post post-card fusion-grid-column fusion-post-cards-grid-column">
-                                                    <div
-                                                        class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column">
-                                                        <div class="fusion-text fusion-text-no-margin subtitle">
-                                                            <p>Italy | May 2023</p>
-                                                        </div>
-                                                        <div
-                                                            class="fusion-title title fusion-sep-none fusion-title-text fusion-title-size-two">
-                                                            <h2 class="fusion-title-heading title-heading-left">
-                                                                <a href="story-detail/floods-emilia-romagna.html"
-                                                                    class="awb-custom-text-color awb-custom-text-hover-color"
-                                                                    target="_self">
-                                                                    Floods in Emilia-Romagna
-                                                                </a>
-                                                            </h2>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin">
-                                                            <p>
-                                                                <a href="story-detail/floods-emilia-romagna.html">
-                                                                    <img loading="lazy" decoding="async" width="240"
-                                                                        height="160" src="photos/gallery 11.jpg"
-                                                                        class="attachment-copertine-report size-copertine-report wp-post-image"
-                                                                        alt="" />
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin myexcerpt">
-                                                            <p>The devastating floods that engulfed the northern Italian
-                                                                region of Emilia-Romagna this month, claiming the lives
-                                                                of 15 individuals, displacing thousands, and bringing
-                                                                transportation and businesses to a standstill [...]</p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                                <!-- Story 10: The War You Don't See -->
-                                                <li
-                                                    class="fusion-layout-column fusion_builder_column fusion-flex-column single-archive-post post-card fusion-grid-column fusion-post-cards-grid-column">
-                                                    <div
-                                                        class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column">
-                                                        <div class="fusion-text fusion-text-no-margin subtitle">
-                                                            <p>Ukraine | February & March 2023</p>
-                                                        </div>
-                                                        <div
-                                                            class="fusion-title title fusion-sep-none fusion-title-text fusion-title-size-two">
-                                                            <h2 class="fusion-title-heading title-heading-left">
-                                                                <a href="story-detail/the-war-you-dont-see.html"
-                                                                    class="awb-custom-text-color awb-custom-text-hover-color"
-                                                                    target="_self">
-                                                                    The War You Don't See
-                                                                </a>
-                                                            </h2>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin">
-                                                            <p>
-                                                                <a href="story-detail/the-war-you-dont-see.html">
-                                                                    <img loading="lazy" decoding="async" width="240"
-                                                                        height="160" src="photos/gallery 9.jpg"
-                                                                        class="attachment-copertine-report size-copertine-report wp-post-image"
-                                                                        alt="" />
-                                                                </a>
-                                                            </p>
-                                                        </div>
-                                                        <div class="fusion-text fusion-text-no-margin myexcerpt">
-                                                            <p>The War You Don't See: Childhood Cancer in Ukraine.
-                                                                Ukraine has one of the highest rates in Europe in terms
-                                                                of children who are diagnosed with cancer. Chornobyl's
-                                                                Nuclear disasters have had a devastating impact [...]
-                                                            </p>
-                                                        </div>
-                                                    </div>
-                                                </li>
-
-                                            </ul>
-
-                                            <!-- Pagination -->
-                                            <div class="pagination infinite-scroll clearfix">
-                                                <span class="current">1</span>
-                                                <a href="#" class="inactive">2</a>
-                                                <a class="pagination-next" rel="next" href="#">
-                                                    <span class="page-text">Next</span>
-                                                    <span class="page-next"></span>
-                                                </a>
-                                            </div>
-
-                                            <div class="fusion-clearfix"></div>
-                                        </div>
-                                    </div>
+                                    class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300">
                                 </div>
                             </div>
-                        </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-500 font-raleway">Afghanistan | August 2021 - Present</p>
+                                <h3
+                                    class="text-xl font-raleway font-medium text-black group-hover:text-gray-700 transition-colors duration-300">
+                                    Afghanistan: After the Taliban</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">The fall of Kabul and the uncertain
+                                    future of the Afghan people.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Story 2: Ukraine War -->
+                    <div class="group cursor-pointer">
+                        <a href="story-detail/ukraine-war-and-resistance.html" class="block">
+                            <div class="relative overflow-hidden bg-gray-200 rounded-lg aspect-[4/3] mb-4">
+                                <img src="photos/gallery 6.jpg" alt="Ukraine: War and Resistance"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div
+                                    class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-500 font-raleway">Ukraine | 2022-2024</p>
+                                <h3
+                                    class="text-xl font-raleway font-medium text-black group-hover:text-gray-700 transition-colors duration-300">
+                                    Ukraine: War and Resistance</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">The ongoing war in Ukraine and the
+                                    resilience of its people.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Story 3: Gaza -->
+                    <div class="group cursor-pointer">
+                        <a href="story-detail/gaza-under-siege.html" class="block">
+                            <div class="relative overflow-hidden bg-gray-200 rounded-lg aspect-[4/3] mb-4">
+                                <img src="photos/gallery 9.jpg" alt="Gaza: Under Siege"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div
+                                    class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-500 font-raleway">Gaza | 2023-2024</p>
+                                <h3
+                                    class="text-xl font-raleway font-medium text-black group-hover:text-gray-700 transition-colors duration-300">
+                                    Gaza: Under Siege</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Life in Gaza amid ongoing conflict and
+                                    humanitarian crisis.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Story 4: Ethiopia -->
+                    <div class="group cursor-pointer">
+                        <a href="story-detail/ethiopia-tigray-conflict.html" class="block">
+                            <div class="relative overflow-hidden bg-gray-200 rounded-lg aspect-[4/3] mb-4">
+                                <img src="photos/gallery 11.jpg" alt="Ethiopia: The Tigray Conflict"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div
+                                    class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-500 font-raleway">Ethiopia | 2020-2022</p>
+                                <h3
+                                    class="text-xl font-raleway font-medium text-black group-hover:text-gray-700 transition-colors duration-300">
+                                    Ethiopia: The Tigray Conflict</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">The devastating conflict in Ethiopia's
+                                    northern Tigray region.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Story 5: Myanmar -->
+                    <div class="group cursor-pointer">
+                        <a href="story-detail/myanmar-fight-for-democracy.html" class="block">
+                            <div class="relative overflow-hidden bg-gray-200 rounded-lg aspect-[4/3] mb-4">
+                                <img src="photos/gallery 31.jpg" alt="Myanmar: Fight for Democracy"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div
+                                    class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-500 font-raleway">Myanmar | 2021-2024</p>
+                                <h3
+                                    class="text-xl font-raleway font-medium text-black group-hover:text-gray-700 transition-colors duration-300">
+                                    Myanmar: Fight for Democracy</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">The struggle for democracy following
+                                    Myanmar's military coup.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Story 6: Haiti -->
+                    <div class="group cursor-pointer">
+                        <a href="story-detail/haiti-chaos-and-violence.html" class="block">
+                            <div class="relative overflow-hidden bg-gray-200 rounded-lg aspect-[4/3] mb-4">
+                                <img src="photos/gallery 1.jpg" alt="Haiti: Chaos and Violence"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div
+                                    class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-500 font-raleway">Haiti | 2021-2024</p>
+                                <h3
+                                    class="text-xl font-raleway font-medium text-black group-hover:text-gray-700 transition-colors duration-300">
+                                    Haiti: Chaos and Violence</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">Political instability and gang violence
+                                    plague Haiti.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Story 7: South Sudan -->
+                    <div class="group cursor-pointer">
+                        <a href="story-detail/south-sudan-2012-2022.html" class="block">
+                            <div class="relative overflow-hidden bg-gray-200 rounded-lg aspect-[4/3] mb-4">
+                                <img src="photos/gallery 6.jpg" alt="South Sudan: 2012-2022"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div
+                                    class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-500 font-raleway">South Sudan | 2012-2022</p>
+                                <h3
+                                    class="text-xl font-raleway font-medium text-black group-hover:text-gray-700 transition-colors duration-300">
+                                    South Sudan: 2012-2022</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">A decade of conflict and humanitarian
+                                    crisis in the world's youngest nation.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Story 8: Syria -->
+                    <div class="group cursor-pointer">
+                        <a href="story-detail/the-fall-of-assad.html" class="block">
+                            <div class="relative overflow-hidden bg-gray-200 rounded-lg aspect-[4/3] mb-4">
+                                <img src="photos/gallery 9.jpg" alt="The Fall of Assad"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div
+                                    class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-500 font-raleway">Syria | December 2024</p>
+                                <h3
+                                    class="text-xl font-raleway font-medium text-black group-hover:text-gray-700 transition-colors duration-300">
+                                    The Fall of Assad</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">The dramatic end of the Assad regime
+                                    and the uncertain future of Syria.</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Story 9: Lebanon -->
+                    <div class="group cursor-pointer">
+                        <a href="story-detail/the-war-in-lebanon.html" class="block">
+                            <div class="relative overflow-hidden bg-gray-200 rounded-lg aspect-[4/3] mb-4">
+                                <img src="photos/gallery 11.jpg" alt="The War in Lebanon"
+                                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <div
+                                    class="absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300">
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <p class="text-sm text-gray-500 font-raleway">Lebanon | 2023-2024</p>
+                                <h3
+                                    class="text-xl font-raleway font-medium text-black group-hover:text-gray-700 transition-colors duration-300">
+                                    The War in Lebanon</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">The escalating conflict and its impact
+                                    on Lebanese civilians.</p>
+                            </div>
+                        </a>
                     </div>
                 </div>
-            </section>
+            </div>
         </main>
-
-        <!-- Footer -->
-        <footer class="fusion-footer">
-            <div class="fusion-footer-widget-area fusion-widget-area"></div>
-        </footer>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="script.js"></script>
 </body>
 
 </html>

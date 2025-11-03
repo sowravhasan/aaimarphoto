@@ -4,198 +4,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaza: Under Siege - Fabio Bucciarelli</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <title>Gaza: Under Siege - Andrea Aimar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="../styles-clean.css">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="../components/navigation-loader.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'raleway': ['Raleway', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
 </head>
 
-<body class="fusion-body">
-    <div id="page" class="hfeed site">
-        <!-- Navigation Component will be loaded here automatically -->
-        <header id="masthead" class="site-header fusion-header" role="banner">
-            <!-- Navigation content loaded by navigation-loader.js -->
+<body class="bg-white">
+    <div id="page" class="min-h-screen">
+        <!-- Clean Tailwind Navigation -->
+        <header class="top-0 left-0 right-0 z-50 bg-transparent">
+            <nav class="max-w-screen-2xl mx-auto px-3 py-8">
+                <div class="flex items-center justify-between">
+                    <!-- Logo -->
+                    <div class="flex-shrink-0">
+                        <a href="../index.html" class="text-black font-raleway text-2xl md:text-4xl font-normal uppercase tracking-tighter hover:opacity-80 transition-opacity duration-300">
+                            Andrea Aimar
+                        </a>
+                    </div>
+
+                    <!-- Desktop Navigation -->
+                    <div class="hidden md:flex items-center space-x-10">
+                        <a href="../stories.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                            STORIES
+                        </a>
+                        <a href="../stories1.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                            STORIES1
+                        </a>
+                        <a href="../stories2.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                            STORIES2
+                        </a>
+                        <a href="../about.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                            ABOUT
+                        </a>
+                    </div>
+
+                    <!-- Mobile Menu Button -->
+                    <div class="md:hidden">
+                        <button id="mobile-menu-btn" class="text-black focus:outline-none">
+                            <div class="hamburger-menu">
+                                <span class="block w-6 h-0.5 bg-black mb-1 transition-all duration-300"></span>
+                                <span class="block w-6 h-0.5 bg-black mb-1 transition-all duration-300"></span>
+                                <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Mobile Navigation Menu -->
+                <div id="mobile-menu" class="md:hidden hidden mt-4 ">
+                    <div class="space-y-4">
+                        <a href="../stories.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4 rounded transition-all duration-300">
+                            STORIES
+                        </a>
+                        <a href="../stories1.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4 rounded transition-all duration-300">
+                            STORIES1
+                        </a>
+                        <a href="../stories2.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4 rounded transition-all duration-300">
+                            STORIES2
+                        </a>
+                        <a href="../about.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 hover:bg-gray-50 px-4 rounded transition-all duration-300">
+                            ABOUT
+                        </a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Mobile Menu JavaScript -->
+            <script>
+                document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    const hamburger = this.querySelector('.hamburger-menu');
+                    
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    // Animate hamburger to X
+                    if (mobileMenu.classList.contains('hidden')) {
+                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
+                        hamburger.querySelector('span:nth-child(2)').style.opacity = '1';
+                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(0deg) translate(0, 0)';
+                    } else {
+                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(45deg) translate(4px, 4px)';
+                        hamburger.querySelector('span:nth-child(2)').style.opacity = '0';
+                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                    }
+                });
+
+                // Close mobile menu when clicking on links
+                document.querySelectorAll('#mobile-menu a').forEach(link => {
+                    link.addEventListener('click', function() {
+                        const mobileMenu = document.getElementById('mobile-menu');
+                        const hamburger = document.querySelector('.hamburger-menu');
+                        
+                        mobileMenu.classList.add('hidden');
+                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
+                        hamburger.querySelector('span:nth-child(2)').style.opacity = '1';
+                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(0deg) translate(0, 0)';
+                    });
+                });
+            </script>
         </header>
 
-        
+        <!-- Main Content with proper padding for fixed header -->
+        <main id="main" class="">
+            <section class="max-w-6xl mx-auto px-6 py-12">
+                <div class="prose prose-lg max-w-none">
+                    <!-- Story Title -->
+                    <h1 class="text-4xl md:text-5xl font-raleway font-light mb-6 text-black">
+                        Gaza: Under Siege
+                    </h1>
 
-        <!-- Main Content -->
-        <main id="main" class="site-main" style="padding-top: 0;">
-            <section id="content" style="width: 100%;">
-                <div id="post-7517" class="post-7517 portfolio type-portfolio status-publish has-post-thumbnail hentry">
-                    <div class="post-content">
-                        <div
-                            class="fusion-fullwidth fullwidth-box fusion-builder-row-2 fusion-flex-container nonhundred-percent-fullwidth non-hundred-percent-height-scrolling">
-                            <div class="fusion-builder-row fusion-row fusion-flex-align-items-flex-start fusion-flex-content-wrap"
-                                style="max-width:1112.8px;margin-left: calc(-4% / 2 );margin-right: calc(-4% / 2 );">
-                                <div
-                                    class="fusion-layout-column fusion_builder_column fusion-builder-column-2 fusion_builder_column_1_1 1_1 fusion-flex-column small-container">
-                                    <div
-                                        class="fusion-column-wrapper fusion-column-has-shadow fusion-flex-justify-content-flex-start fusion-content-layout-column">
+                    <!-- Story Subtitle -->
+                    <p class="text-lg text-gray-600 mb-8 font-raleway">
+                        Kabul, Afghanistan | August 2021 - Present
+                    </p>
 
-                                        <!-- Story Title -->
-                                        <div
-                                            class="fusion-title title fusion-title-2 fusion-sep-none fusion-title-text fusion-title-size-one">
-                                            <h1 class="fusion-title-heading title-heading-left">Gaza: Under Siege</h1>
-                                        </div>
+                    <!-- Story Content -->
+                    <div class="space-y-6 text-gray-800 leading-relaxed">
+                        <p>The fall of Kabul on August 15, 2021, marked the end of a 20-year Western military presence in Afghanistan and the return of Taliban rule. The chaotic evacuation from Hamid Karzai International Airport became a symbol of the abrupt end to America's longest war and the beginning of a new, uncertain chapter for the Afghan people.</p>
 
-                                        <!-- Story Subtitle -->
-                                        <div class="fusion-text fusion-text-1 fusion-text-no-margin subtitle">
-                                            <p>Gaza Strip | October 2023 - Present</p>
-                                        </div>
+                        <p>The Taliban's swift takeover surprised many observers, as provincial capitals fell in rapid succession leading up to the capture of Kabul. The Afghan National Defense and Security Forces, despite years of training and billions in investment, collapsed almost entirely as government officials fled the country and soldiers abandoned their posts.</p>
 
-                                        <!-- Story Content -->
-                                        <div class="fusion-content-tb fusion-content-tb-1">
-                                            <p>The Gaza Strip, a narrow coastal enclave home to over 2.3 million
-                                                Palestinians, has been under an Israeli and Egyptian blockade since
-                                                2007. This densely populated territory, measuring just 365 square
-                                                kilometers, has become synonymous with one of the world's most
-                                                intractable conflicts and ongoing humanitarian crises.</p>
+                        <p>For Afghan women and girls, the Taliban's return has meant a systematic rollback of rights gained over two decades. Universities have been closed to women, most female workers have been barred from their jobs, and women have been prohibited from most forms of employment except in essential services like healthcare.</p>
 
-                                            <p>The current escalation began on October 7, 2023, when Hamas launched a
-                                                surprise attack on Israel, killing over 1,200 people and taking more
-                                                than 240 hostages. Israel's response has been swift and devastating,
-                                                with a military campaign aimed at destroying Hamas's military
-                                                capabilities and securing the release of hostages. The conflict has
-                                                resulted in tens of thousands of Palestinian casualties and the
-                                                displacement of the majority of Gaza's population.</p>
+                        <p>The humanitarian crisis that followed has been severe. The freezing of Afghan assets abroad and the suspension of international aid led to economic collapse, widespread unemployment, and food insecurity affecting millions of Afghans. International efforts to provide humanitarian assistance while avoiding legitimizing the Taliban government have created a delicate balance.</p>
 
-                                            <p>Life in Gaza has become a daily struggle for survival. The blockade has
-                                                severely restricted the movement of people and goods, creating chronic
-                                                shortages of essential supplies including food, medicine, fuel, and
-                                                construction materials. Unemployment rates exceed 40%, and the majority
-                                                of the population relies on international aid for basic necessities.</p>
+                        <p>Despite promises of a more moderate approach, the Taliban's governance has largely mirrored their previous rule in the 1990s, with strict interpretation of Islamic law, public executions, and severe restrictions on personal freedoms. The international community continues to grapple with how to engage with a regime that controls Afghanistan but lacks widespread international recognition.</p>
 
-                                            <p>The territory's infrastructure has been systematically degraded by years
-                                                of conflict and blockade. The electricity grid provides power for only a
-                                                few hours per day, water treatment facilities operate at reduced
-                                                capacity, and the healthcare system struggles to meet basic needs.
-                                                Schools and hospitals have been damaged or destroyed in successive
-                                                military operations, further undermining the population's access to
-                                                essential services.</p>
+                        <p>The story of Afghanistan after the Taliban's return is one of a nation struggling to find stability while its people face uncertainty about their future. For many Afghans, particularly women and minorities, the promises of progress and democracy that defined the previous two decades have given way to a reality that echoes the country's tumultuous past.</p>
+                    </div>
 
-                                            <p>Children bear a disproportionate burden of the crisis. UNICEF estimates
-                                                that children make up nearly half of Gaza's population, and many have
-                                                experienced multiple traumatic events including military operations,
-                                                displacement, and the loss of family members. Educational opportunities
-                                                are limited, with many schools operating in shifts due to overcrowding
-                                                and damage to facilities.</p>
-
-                                            <p>The international community has repeatedly called for a resolution to the
-                                                crisis, with numerous UN resolutions condemning the blockade and calling
-                                                for its lifting. However, political divisions and security concerns have
-                                                prevented meaningful progress. Humanitarian organizations continue to
-                                                provide assistance, but their efforts are hampered by access
-                                                restrictions and recurring violence.</p>
-
-                                            <p>As the current conflict continues, the humanitarian situation in Gaza
-                                                remains dire. The territory's isolation, combined with the ongoing
-                                                violence, has created a crisis that affects every aspect of daily life
-                                                for Palestinians trapped within its borders. The international community
-                                                continues to grapple with finding a sustainable solution that addresses
-                                                both security concerns and the fundamental human rights of Gaza's
-                                                population.</p>
-                                        </div>
-
-                                        <!-- Photo Gallery -->
-                                        <div class="ngg-gallery-thumbnail-container">
-                                            <div class="ngg-gallery-thumbnail-box">
-                                                <div class="ngg-gallery-thumbnail">
-                                                    <a href="../photos/photo5.jpg" title="Gaza City under bombardment">
-                                                        <img src="../photos/photo5.jpg" alt="Gaza: Under Siege"
-                                                            width="1000" height="667" style="max-width:100%;" />
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div class="ngg-gallery-thumbnail-box">
-                                                <div class="ngg-gallery-thumbnail">
-                                                    <a href="../photos/photo2.jpg"
-                                                        title="Palestinian families displaced">
-                                                        <img src="../photos/photo2.jpg" alt="Gaza: Under Siege"
-                                                            width="1000" height="667" style="max-width:100%;" />
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div class="ngg-gallery-thumbnail-box">
-                                                <div class="ngg-gallery-thumbnail">
-                                                    <a href="../photos/photo4.jpg"
-                                                        title="Destroyed infrastructure in Gaza">
-                                                        <img src="../photos/photo4.jpg" alt="Gaza: Under Siege"
-                                                            width="1000" height="667" style="max-width:100%;" />
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div class="ngg-gallery-thumbnail-box">
-                                                <div class="ngg-gallery-thumbnail">
-                                                    <a href="../photos/photo1.jpg" title="Children in Gaza amid crisis">
-                                                        <img src="../photos/photo1.jpg" alt="Gaza: Under Siege"
-                                                            width="1000" height="667" style="max-width:100%;" />
-                                                    </a>
-                                                </div>
-                                            </div>
-
-                                            <div class="ngg-gallery-thumbnail-box">
-                                                <div class="ngg-gallery-thumbnail">
-                                                    <a href="../photos/photo3.jpg" title="Humanitarian aid delivery">
-                                                        <img src="../photos/photo3.jpg" alt="Gaza: Under Siege"
-                                                            width="1000" height="667" style="max-width:100%;" />
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-- Navigation Back to Stories -->
-                                        <div class="story-navigation">
-                                            <a href="../stories.html" class="back-to-stories">← Back to Stories</a>
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
+                    <!-- Image Grid or Gallery could go here -->
+                    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Placeholder for images -->
+                        <div class="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-500">Photo placeholder</span>
+                        </div>
+                        <div class="bg-gray-200 h-64 rounded-lg flex items-center justify-center">
+                            <span class="text-gray-500">Photo placeholder</span>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
-
-        <!-- Footer -->
-        <footer class="fusion-footer">
-            <div class="fusion-footer-widget-area fusion-widget-area"></div>
-        </footer>
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="../script.js"></script>
-
-    <!-- Simple lightbox functionality -->
-    <script>
-        $(document).ready(function () {
-            // Simple lightbox for gallery images
-            $('.ngg-gallery-thumbnail a').click(function (e) {
-                e.preventDefault();
-                var imgSrc = $(this).attr('href');
-                var imgTitle = $(this).attr('title');
-
-                // Create lightbox overlay
-                var lightbox = $('<div class="lightbox-overlay"><div class="lightbox-container"><img src="' + imgSrc + '" alt="' + imgTitle + '"><div class="lightbox-title">' + imgTitle + '</div><span class="lightbox-close">&times;</span></div></div>');
-
-                $('body').append(lightbox);
-                lightbox.fadeIn();
-
-                // Close lightbox
-                $('.lightbox-close, .lightbox-overlay').click(function () {
-                    lightbox.fadeOut(function () {
-                        lightbox.remove();
-                    });
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>
+

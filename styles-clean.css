@@ -1,0 +1,368 @@
+/* ========================================
+   CLEAN STYLES - TAILWIND COMPATIBLE
+   ======================================== */
+
+/* Import Libre Baskerville font */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* CSS Variables for consistency */
+:root {
+    --primary-color: #65bc7b;
+    --text-color: #747474;
+    --title-font: 'Libre Baskerville', serif;
+}
+
+/* Reset and base styles */
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Open Sans", Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.5;
+}
+
+/* ========================================
+   FULL SCREEN VERTICAL SLIDER
+   ======================================== */
+
+/* Full Screen Vertical Slider base HTML structure */
+html.fsvs {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+html.fsvs #wrapper,
+html.fsvs body {
+    height: 100%;
+}
+
+html.fsvs #fsvs-body {
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+}
+
+html.fsvs #fsvs-body>* {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-perspective: 1000px;
+}
+
+/* Slider Images */
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translateY(100%);
+}
+
+.slide.active {
+    opacity: 1;
+    transform: translateY(0);
+    z-index: 2;
+}
+
+/* Enhanced pagination with exact WordPress styling */
+html.fsvs #fsvs-pagination {
+    margin: 0;
+    padding: 8px 4px;
+    position: fixed;
+    height: auto;
+    right: 30px;
+    top: 50%;
+    z-index: 999;
+    width: 25px;
+    transform: translateY(-50%);
+    transition: right 0.3s ease;
+}
+
+html.fsvs #fsvs-pagination:hover {
+    right: 20px;
+}
+
+html.fsvs #fsvs-pagination ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+html.fsvs #fsvs-pagination li {
+    list-style: none;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    text-align: center;
+    margin: 0 0 8px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+html.fsvs #fsvs-pagination li>span {
+    border-radius: 100%;
+    width: 18px;
+    height: 18px;
+    display: block;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    transform: scale(0.8);
+}
+
+html.fsvs #fsvs-pagination li>span>span {
+    display: none;
+}
+
+html.fsvs #fsvs-pagination li.active>span,
+html.fsvs #fsvs-pagination li:hover>span {
+    background: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 1);
+    transform: scale(1);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Loading states and animations */
+.fusion-wrapper {
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.fusion-wrapper.loaded,
+body.loaded .fusion-wrapper {
+    opacity: 1;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.width-100 {
+    width: 100% !important;
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+    html.fsvs #fsvs-pagination {
+        right: 15px;
+        width: 20px;
+    }
+
+    html.fsvs #fsvs-pagination li {
+        width: 15px;
+        height: 15px;
+        margin-bottom: 6px;
+    }
+
+    html.fsvs #fsvs-pagination li>span {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    html.fsvs #fsvs-pagination {
+        right: 10px;
+        width: 18px;
+    }
+
+    html.fsvs #fsvs-pagination li {
+        width: 12px;
+        height: 12px;
+        margin-bottom: 5px;
+    }
+
+    html.fsvs #fsvs-pagination li>span {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+/* ========================================
+   NON-HOMEPAGE PAGES
+   ======================================== */
+
+/* For pages without full screen slider */
+body:not(.home) {
+    min-height: 100vh;
+}
+
+body:not(.home) header {
+    background: transparent;
+    backdrop-filter: none;
+}
+
+body:not(.home) header a {
+    color: #000 !important;
+}
+
+body:not(.home) header .text-white {
+    color: #000 !important;
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+    html.fsvs #fsvs-pagination {
+        display: none;
+    }
+
+    header {
+        position: static !important;
+        background: #fff !important;
+    }
+
+    header a {
+        color: #000 !important;
+    }
+}
+
+/* Hide pagination when not present */
+#fsvs-pagination:empty {
+    display: none !important;
+}
+
+/* Mobile Menu Blur Effect */
+#mobile-menu {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    padding: 16px !important;
+    margin-top: 8px !important;
+}
+
+/* Enhanced text visibility for mobile menu items */
+#mobile-menu a {
+    background: rgba(255, 255, 255, 0.3) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+    border-radius: 8px !important;
+    padding: 12px 16px !important;
+    margin: 4px 0 !important;
+    display: block !important;
+    font-weight: 500 !important;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8) !important;
+    transition: all 0.3s ease !important;
+}
+
+#mobile-menu a:hover {
+    background: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Homepage specific mobile menu glassmorphism */
+body.home #mobile-menu {
+    background: rgba(0, 0, 0, 0.4) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 16px !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
+    padding: 20px !important;
+    margin-top: 12px !important;
+}
+
+/* Homepage mobile menu items with enhanced visibility */
+body.home #mobile-menu a {
+    background: rgba(255, 255, 255, 0.15) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 12px !important;
+    padding: 16px 20px !important;
+    margin: 8px 0 !important;
+    display: block !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    letter-spacing: 0.05em !important;
+}
+
+/* Homepage mobile menu hover effects */
+body.home #mobile-menu a:hover {
+    background: rgba(255, 255, 255, 0.25) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7) !important;
+}
+
+/* ========================================
+   LOGO AND TITLE FONT FAMILY
+   ======================================== */
+
+/* Logo styling with Libre Baskerville */
+header a[href="index.html"],
+header a[href="../index.html"] {
+    font-family: var(--title-font) !important;
+}
+
+/* All headings and titles with Libre Baskerville */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-raleway,
+.text-4xl,
+.text-5xl,
+.text-xl,
+[class*="text-"]:is(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--title-font) !important;
+}
+
+/* Specific title classes */
+.story-title,
+.page-title,
+.section-title {
+    font-family: var(--title-font) !important;
+}
+
+/* Story and page titles specifically */
+main h1,
+section h1,
+article h1,
+.prose h1,
+.prose h2,
+.prose h3 {
+    font-family: var(--title-font) !important;
+}
