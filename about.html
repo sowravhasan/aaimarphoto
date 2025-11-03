@@ -4,18 +4,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Andrea Aimar</title>
+    <title>About - ANDREA AIMAR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles-clean.css">
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'raleway': ['Raleway', 'Arial', 'sans-serif'],
+                        'raleway': ['Libre Baskerville', 'serif'],
                     }
                 }
             }
@@ -32,8 +32,9 @@
                     <!-- Logo -->
                     <div class="flex-shrink-0">
                         <a href="index.html"
-                            class="text-black font-raleway text-2xl md:text-4xl font-normal uppercase tracking-tighter hover:opacity-80 transition-opacity duration-300">
-                            Andrea Aimar
+                            class="text-black font-raleway text-xl md:text-3xl font-medium hover:opacity-80 transition-opacity duration-300"
+                            style="font-weight: 550;">
+                            ANDREA AIMAR
                         </a>
                     </div>
 
@@ -65,6 +66,13 @@
                                 <span class="block w-6 h-0.5 bg-black mb-1 transition-all duration-300"></span>
                                 <span class="block w-6 h-0.5 bg-black transition-all duration-300"></span>
                             </div>
+                            <!-- Simple Close Icon (hidden by default) -->
+                            <div class="close-icon hidden">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </div>
                         </button>
                     </div>
                 </div>
@@ -73,19 +81,19 @@
                 <div id="mobile-menu" class="md:hidden hidden mt-4">
                     <div class="space-y-4">
                         <a href="stories.html"
-                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4 rounded transition-all duration-300">
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
                             STORIES
                         </a>
                         <a href="stories1.html"
-                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4 rounded transition-all duration-300">
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
                             STORIES1
                         </a>
                         <a href="stories2.html"
-                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4 rounded transition-all duration-300">
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
                             STORIES2
                         </a>
                         <a href="about.html"
-                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 bg-gray-100 px-4 rounded">
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 bg-gray-100 px-4 ">
                             ABOUT
                         </a>
                     </div>
@@ -97,18 +105,19 @@
                 document.getElementById('mobile-menu-btn').addEventListener('click', function () {
                     const mobileMenu = document.getElementById('mobile-menu');
                     const hamburger = this.querySelector('.hamburger-menu');
+                    const closeIcon = this.querySelector('.close-icon');
 
                     mobileMenu.classList.toggle('hidden');
 
-                    // Animate hamburger to X
+                    // Toggle between hamburger and close icon
                     if (mobileMenu.classList.contains('hidden')) {
-                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
-                        hamburger.querySelector('span:nth-child(2)').style.opacity = '1';
-                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(0deg) translate(0, 0)';
+                        // Show hamburger, hide close icon
+                        hamburger.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
                     } else {
-                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(45deg) translate(4px, 4px)';
-                        hamburger.querySelector('span:nth-child(2)').style.opacity = '0';
-                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                        // Hide hamburger, show close icon
+                        hamburger.classList.add('hidden');
+                        closeIcon.classList.remove('hidden');
                     }
                 });
 
@@ -117,11 +126,12 @@
                     link.addEventListener('click', function () {
                         const mobileMenu = document.getElementById('mobile-menu');
                         const hamburger = document.querySelector('.hamburger-menu');
+                        const closeIcon = document.querySelector('.close-icon');
 
                         mobileMenu.classList.add('hidden');
-                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
-                        hamburger.querySelector('span:nth-child(2)').style.opacity = '1';
-                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(0deg) translate(0, 0)';
+                        // Show hamburger, hide close icon
+                        hamburger.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
                     });
                 });
             </script>
@@ -132,7 +142,7 @@
             <div class="max-w-4xl mx-auto px-6">
                 <!-- Hero Section -->
                 <div class="text-center mb-16">
-                    <h1 class="text-4xl md:text-5xl font-raleway font-light text-black mb-4">About Andrea Aimar</h1>
+                    <h1 class="text-4xl md:text-5xl font-raleway font-light text-black mb-4">About ANDREA AIMAR</h1>
                     <p class="text-xl text-gray-600 font-raleway">Photojournalist & Documentary Photographer</p>
                 </div>
 
@@ -140,8 +150,8 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
                     <!-- Photo -->
                     <div class="order-1 lg:order-1">
-                        <div class="relative overflow-hidden rounded-lg aspect-[3/4] bg-gray-200">
-                            <img src="photos/gallery 31.jpg" alt="Andrea Aimar" class="w-full h-full object-cover">
+                        <div class="relative overflow-hidden -lg aspect-[3/4] bg-gray-200">
+                            <img src="photos/gallery 31.jpg" alt="ANDREA AIMAR" class="w-full h-full object-cover">
                         </div>
                     </div>
 
@@ -150,7 +160,7 @@
                         <div>
                             <h2 class="text-2xl font-raleway font-medium text-black mb-4">Professional Journey</h2>
                             <p class="text-gray-700 leading-relaxed mb-4">
-                                Andrea Aimar is an accomplished Italian photojournalist and documentary photographer who
+                                ANDREA AIMAR is an accomplished Italian photojournalist and documentary photographer who
                                 has dedicated their career to capturing the human stories behind global conflicts and
                                 social issues. With a keen eye for detail and an unwavering commitment to truth-telling,
                                 Andrea's work brings light to the world's most pressing humanitarian crises.
@@ -196,16 +206,18 @@
                 </div>
 
                 <!-- Contact Section -->
-                <div class="text-center bg-gray-50 rounded-lg p-8">
+                <div class="text-center bg-gray-50 -lg p-8">
                     <h3 class="text-2xl font-raleway font-medium text-black mb-4">Get In Touch</h3>
                     <p class="text-gray-600 mb-6">For assignments, exhibitions, or collaboration inquiries</p>
                     <div class="space-y-2">
-                        <p class="text-gray-700">
-                            <i class="fas fa-envelope mr-2"></i>
+                        <p class="text-gray-700 flex items-center justify-center">
+                            <i class="fas fa-envelope mr-2"
+                                style="font-family: 'Font Awesome 6 Free'; font-weight: 900;"></i>
                             contact@andreaaimar.com
                         </p>
-                        <p class="text-gray-700">
-                            <i class="fab fa-instagram mr-2"></i>
+                        <p class="text-gray-700 flex items-center justify-center">
+                            <i class="fab fa-instagram mr-2"
+                                style="font-family: 'Font Awesome 6 Brands'; font-weight: 400;"></i>
                             @andreaaimar_photo
                         </p>
                     </div>

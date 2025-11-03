@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Andrea Aimar</title>
-    <meta name="description" content="Photographer - Andrea Aimar">
+    <title>Home - ANDREA AIMAR</title>
+    <meta name="description" content="Photographer - ANDREA AIMAR">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="styles-clean.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,7 +15,7 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'raleway': ['Raleway', 'Arial', 'sans-serif'],
+                        'raleway': ['Libre Baskerville', 'serif'],
                     }
                 }
             }
@@ -34,8 +34,9 @@
                     <!-- Logo -->
                     <div class="flex-shrink-0">
                         <a href="index.html"
-                            class="text-white font-raleway text-2xl md:text-4xl font-normal uppercase tracking-tighter hover:opacity-80 transition-opacity duration-300">
-                            Andrea Aimar
+                            class="text-white font-raleway text-xl md:text-3xl font-medium hover:opacity-80 transition-opacity duration-300"
+                            style="font-weight: 550;">
+                            ANDREA AIMAR
                         </a>
                     </div>
 
@@ -67,28 +68,34 @@
                                 <span class="block w-6 h-0.5 bg-white mb-1 transition-all duration-300"></span>
                                 <span class="block w-6 h-0.5 bg-white transition-all duration-300"></span>
                             </div>
+                            <!-- Simple Close Icon (hidden by default) -->
+                            <div class="close-icon hidden">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M6 18L18 6M6 6l12 12"></path>
+                                </svg>
+                            </div>
                         </button>
                     </div>
                 </div>
 
                 <!-- Mobile Navigation Menu -->
-                <div id="mobile-menu"
-                    class="md:hidden hidden mt-4 bg-black bg-opacity-95 rounded-lg p-4 backdrop-blur-sm">
+                <div id="mobile-menu" class="md:hidden hidden mt-4 bg-black bg-opacity-95 p-4 backdrop-blur-sm">
                     <div class="space-y-4">
                         <a href="stories.html"
-                            class="block text-white font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-700 hover:bg-white hover:bg-opacity-10 px-4 rounded transition-all duration-300">
+                            class="block text-white font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-700 hover:bg-white hover:bg-opacity-10 px-4 transition-all duration-300">
                             STORIES
                         </a>
                         <a href="stories1.html"
-                            class="block text-white font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-700 hover:bg-white hover:bg-opacity-10 px-4 rounded transition-all duration-300">
+                            class="block text-white font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-700 hover:bg-white hover:bg-opacity-10 px-4 transition-all duration-300">
                             STORIES1
                         </a>
                         <a href="stories2.html"
-                            class="block text-white font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-700 hover:bg-white hover:bg-opacity-10 px-4 rounded transition-all duration-300">
+                            class="block text-white font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-700 hover:bg-white hover:bg-opacity-10 px-4 transition-all duration-300">
                             STORIES2
                         </a>
                         <a href="about.html"
-                            class="block text-white font-raleway text-sm uppercase tracking-wider py-3 hover:bg-white hover:bg-opacity-10 px-4 rounded transition-all duration-300">
+                            class="block text-white font-raleway text-sm uppercase tracking-wider py-3 hover:bg-white hover:bg-opacity-10 px-4 transition-all duration-300">
                             ABOUT
                         </a>
                     </div>
@@ -100,19 +107,19 @@
                 document.getElementById('mobile-menu-btn').addEventListener('click', function () {
                     const mobileMenu = document.getElementById('mobile-menu');
                     const hamburger = this.querySelector('.hamburger-menu');
+                    const closeIcon = this.querySelector('.close-icon');
 
                     mobileMenu.classList.toggle('hidden');
-                    hamburger.classList.toggle('active');
 
-                    // Animate hamburger to X
+                    // Toggle between hamburger and close icon
                     if (mobileMenu.classList.contains('hidden')) {
-                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
-                        hamburger.querySelector('span:nth-child(2)').style.opacity = '1';
-                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(0deg) translate(0, 0)';
+                        // Show hamburger, hide close icon
+                        hamburger.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
                     } else {
-                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(45deg) translate(4px, 4px)';
-                        hamburger.querySelector('span:nth-child(2)').style.opacity = '0';
-                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(-45deg) translate(6px, -6px)';
+                        // Hide hamburger, show close icon
+                        hamburger.classList.add('hidden');
+                        closeIcon.classList.remove('hidden');
                     }
                 });
 
@@ -121,11 +128,12 @@
                     link.addEventListener('click', function () {
                         const mobileMenu = document.getElementById('mobile-menu');
                         const hamburger = document.querySelector('.hamburger-menu');
+                        const closeIcon = document.querySelector('.close-icon');
 
                         mobileMenu.classList.add('hidden');
-                        hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
-                        hamburger.querySelector('span:nth-child(2)').style.opacity = '1';
-                        hamburger.querySelector('span:nth-child(3)').style.transform = 'rotate(0deg) translate(0, 0)';
+                        // Show hamburger, hide close icon
+                        hamburger.classList.remove('hidden');
+                        closeIcon.classList.add('hidden');
                     });
                 });
             </script>
@@ -136,19 +144,49 @@
             <div class="fusion-row" style="max-width:100%;">
                 <div id="fsvs-body">
                     <div class="slide" style="background-image: url('photos/gallery 1.jpg');">
-                        <section class="slider-caption"></section>
+                        <section class="slider-caption">
+                            <div class="absolute bottom-8 left-8 z-10">
+                                <p class="text-white text-sm font-raleway tracking-wider opacity-90">
+                                    Lijiang's Impressions Show. Yunnan, China
+                                </p>
+                            </div>
+                        </section>
                     </div>
                     <div class="slide" style="background-image: url('photos/gallery 6.jpg');">
-                        <section class="slider-caption"></section>
+                        <section class="slider-caption">
+                            <div class="absolute bottom-8 left-8 z-10">
+                                <p class="text-white text-sm font-raleway tracking-wider opacity-90">
+                                    Lijiang's Impressions Show. Yunnan, China
+                                </p>
+                            </div>
+                        </section>
                     </div>
                     <div class="slide" style="background-image: url('photos/gallery 9.jpg');">
-                        <section class="slider-caption"></section>
+                        <section class="slider-caption">
+                            <div class="absolute bottom-8 left-8 z-10">
+                                <p class="text-white text-sm font-raleway tracking-wider opacity-90">
+                                    Lijiang's Impressions Show. Yunnan, China
+                                </p>
+                            </div>
+                        </section>
                     </div>
                     <div class="slide" style="background-image: url('photos/gallery 11.jpg');">
-                        <section class="slider-caption"></section>
+                        <section class="slider-caption">
+                            <div class="absolute bottom-8 left-8 z-10">
+                                <p class="text-white text-sm font-raleway tracking-wider opacity-90">
+                                    Lijiang's Impressions Show. Yunnan, China
+                                </p>
+                            </div>
+                        </section>
                     </div>
                     <div class="slide" style="background-image: url('photos/gallery 31.jpg');">
-                        <section class="slider-caption"></section>
+                        <section class="slider-caption">
+                            <div class="absolute bottom-8 left-8 z-10">
+                                <p class="text-white text-sm font-raleway tracking-wider opacity-90">
+                                    Lijiang's Impressions Show. Yunnan, China
+                                </p>
+                            </div>
+                        </section>
                     </div>
                 </div>
 
