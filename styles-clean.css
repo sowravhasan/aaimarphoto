@@ -4,12 +4,16 @@
 
 /* Import Libre Baskerville font */
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+/* Import Gotham Regular font (using Inter as fallback since Gotham requires license) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
 
 /* CSS Variables for consistency */
 :root {
     --primary-color: #65bc7b;
     --text-color: #747474;
     --title-font: 'Libre Baskerville', serif;
+    --body-font: 'Inter', sans-serif;
+    /* Gotham Regular alternative */
 }
 
 /* Reset and base styles */
@@ -21,7 +25,7 @@ html,
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Libre Baskerville', serif;
+    font-family: var(--body-font);
     font-size: 16px;
     color: var(--text-color);
     line-height: 1.5;
@@ -287,53 +291,112 @@ body:not(.home) header .text-white {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* Homepage specific mobile menu glassmorphism */
+/* Homepage specific mobile menu - exactly like stories page */
 body.home #mobile-menu {
-    background: rgba(0, 0, 0, 0.4) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3) !important;
-    padding: 20px !important;
-    margin-top: 12px !important;
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 16px !important;
+    margin-top: 16px !important;
 }
 
-/* Homepage mobile menu items with enhanced visibility */
+/* Homepage mobile menu items - exactly like stories page */
 body.home #mobile-menu a {
-    background: rgba(255, 255, 255, 0.15) !important;
-    backdrop-filter: blur(10px) !important;
-    -webkit-backdrop-filter: blur(10px) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-
-    padding: 16px 20px !important;
-    margin: 8px 0 !important;
+    background: transparent !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border: none !important;
+    border-bottom: none !important;
+    border-radius: 0 !important;
+    padding: 12px 0 !important;
+    margin: 0 !important;
     display: block !important;
-    color: #ffffff !important;
-    font-weight: 600 !important;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5) !important;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    color: #000000 !important;
+    font-weight: normal !important;
+    text-shadow: none !important;
+    transition: all 0.3s ease !important;
     letter-spacing: 0.05em !important;
 }
 
-/* Homepage mobile menu hover effects */
+/* Homepage mobile menu hover effects - exactly like stories page */
 body.home #mobile-menu a:hover {
-    background: rgba(255, 255, 255, 0.25) !important;
-    transform: translateY(-2px) scale(1.02) !important;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4) !important;
-    border-color: rgba(255, 255, 255, 0.4) !important;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7) !important;
+    background: transparent !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: transparent !important;
+    text-shadow: none !important;
+    opacity: 0.7 !important;
 }
 
 /* ========================================
-   LOGO AND TITLE FONT FAMILY
+   FONT FAMILY CONFIGURATION
    ======================================== */
 
-/* Global font family override - Apply Libre Baskerville everywhere */
+/* Default body font for all elements */
 *:not(.fas):not(.fab):not(.far):not(.fal):not(.fat):not(.fad):not([class*="fa-"]),
 *::before:not(.fas):not(.fab):not(.far):not(.fal):not(.fat):not(.fad):not([class*="fa-"]),
 *::after:not(.fas):not(.fab):not(.far):not(.fal):not(.fat):not(.fad):not([class*="fa-"]) {
-    font-family: 'Libre Baskerville', serif !important;
+    font-family: var(--body-font) !important;
+}
+
+/* Logo - uses title font */
+header a[href="index.html"],
+header a[href="../index.html"] {
+    font-family: var(--title-font) !important;
+    font-weight: 550 !important;
+}
+
+/* All headings and titles use Libre Baskerville */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--title-font) !important;
+}
+
+/* Navigation items use body font */
+nav a,
+.navigation a,
+#mobile-menu a {
+    font-family: var(--body-font) !important;
+}
+
+/* Homepage image captions use body font */
+.slider-caption p,
+.slide .slider-caption p,
+.absolute.bottom-8.left-8 p {
+    font-family: var(--body-font) !important;
+}
+
+/* Paragraphs and body text use Gotham Regular (Inter) */
+p,
+span:not(.logo):not(h1 span):not(h2 span):not(h3 span):not(h4 span):not(h5 span):not(h6 span),
+div:not(.logo):not([class*="title"]),
+li,
+td,
+th,
+label {
+    font-family: var(--body-font) !important;
+}
+
+/* Specific classes that should use title font */
+.font-raleway,
+.story-title,
+.page-title,
+.section-title {
+    font-family: var(--title-font) !important;
+}
+
+/* Tailwind text classes for navigation and captions */
+.text-white:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(.font-raleway),
+.text-xs,
+.text-sm {
+    font-family: var(--body-font) !important;
 }
 
 /* Ensure Font Awesome icons use correct fonts */
@@ -371,7 +434,7 @@ input,
 textarea,
 select,
 button {
-    font-family: 'Libre Baskerville', serif !important;
+    font-family: var(--body-font) !important;
 }
 
 /* Logo styling with Libre Baskerville */
@@ -397,65 +460,6 @@ header a[href="../index.html"] {
     header a[href="../index.html"] {
         font-weight: 550 !important;
     }
-}
-
-/* All headings and titles with Libre Baskerville */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-.font-raleway,
-.text-4xl,
-.text-5xl,
-.text-xl,
-[class*="text-"]:is(h1, h2, h3, h4, h5, h6) {
-    font-family: var(--title-font) !important;
-}
-
-/* Ensure font-raleway class uses Libre Baskerville */
-.font-raleway {
-    font-family: 'Libre Baskerville', serif !important;
-}
-
-/* Specific title classes */
-.story-title,
-.page-title,
-.section-title {
-    font-family: var(--title-font) !important;
-}
-
-/* Story and page titles specifically */
-main h1,
-section h1,
-article h1,
-.prose h1,
-.prose h2,
-.prose h3 {
-    font-family: var(--title-font) !important;
-}
-
-/* Navigation and menu items */
-nav a,
-.navigation a,
-#mobile-menu a {
-    font-family: 'Libre Baskerville', serif !important;
-}
-
-/* All text elements */
-p,
-span,
-div,
-a,
-li,
-td,
-th,
-label,
-.text-white,
-.text-black,
-[class*="text-"] {
-    font-family: 'Libre Baskerville', serif !important;
 }
 
 /* Global border-radius removal */

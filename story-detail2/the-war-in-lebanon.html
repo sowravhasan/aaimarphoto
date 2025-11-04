@@ -7,14 +7,17 @@
     <title>The War in Lebanon - ANDREA AIMAR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../styles-clean.css">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'raleway': ['Libre Baskerville', 'serif'],
+                        baskerville: ['Libre Baskerville', 'serif'],
+                        raleway: ['Raleway', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
                     }
                 }
             }
@@ -30,23 +33,28 @@
                 <div class="flex items-center justify-between">
                     <!-- Logo -->
                     <div class="flex-shrink-0">
-                        <a href="../index.html" class="text-black font-raleway text-xl md:text-3xl font-medium" style="font-weight: 550; uppercase tracking-tighter hover:opacity-80 transition-opacity duration-300">
+                        <a href="../index.html" class="text-black font-raleway text-xl md:text-3xl font-medium"
+                            style="font-weight: 550; uppercase tracking-tighter hover:opacity-80 transition-opacity duration-300">
                             ANDREA AIMAR
                         </a>
                     </div>
 
                     <!-- Desktop Navigation -->
                     <div class="hidden md:flex items-center space-x-10">
-                        <a href="../stories.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                        <a href="../stories.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
                             STORIES
                         </a>
-                        <a href="../stories1.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                        <a href="../stories1.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
                             STORIES1
                         </a>
-                        <a href="../stories2.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                        <a href="../stories2.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
                             STORIES2
                         </a>
-                        <a href="../about.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                        <a href="../about.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
                             ABOUT
                         </a>
                     </div>
@@ -66,16 +74,20 @@
                 <!-- Mobile Navigation Menu -->
                 <div id="mobile-menu" class="md:hidden hidden mt-4 ">
                     <div class="space-y-4">
-                        <a href="../stories.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
+                        <a href="../stories.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
                             STORIES
                         </a>
-                        <a href="../stories1.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
+                        <a href="../stories1.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
                             STORIES1
                         </a>
-                        <a href="../stories2.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
+                        <a href="../stories2.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
                             STORIES2
                         </a>
-                        <a href="../about.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 hover:bg-gray-50 px-4  transition-all duration-300">
+                        <a href="../about.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 hover:bg-gray-50 px-4  transition-all duration-300">
                             ABOUT
                         </a>
                     </div>
@@ -84,12 +96,12 @@
 
             <!-- Mobile Menu JavaScript -->
             <script>
-                document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+                document.getElementById('mobile-menu-btn').addEventListener('click', function () {
                     const mobileMenu = document.getElementById('mobile-menu');
                     const hamburger = this.querySelector('.hamburger-menu');
-                    
+
                     mobileMenu.classList.toggle('hidden');
-                    
+
                     // Animate hamburger to X
                     if (mobileMenu.classList.contains('hidden')) {
                         hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
@@ -104,10 +116,10 @@
 
                 // Close mobile menu when clicking on links
                 document.querySelectorAll('#mobile-menu a').forEach(link => {
-                    link.addEventListener('click', function() {
+                    link.addEventListener('click', function () {
                         const mobileMenu = document.getElementById('mobile-menu');
                         const hamburger = document.querySelector('.hamburger-menu');
-                        
+
                         mobileMenu.classList.add('hidden');
                         hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
                         hamburger.querySelector('span:nth-child(2)').style.opacity = '1';
@@ -128,32 +140,99 @@
 
                     <!-- Story Subtitle -->
                     <p class="text-lg text-gray-600 mb-8 font-raleway">
-                        Kabul, Afghanistan | August 2021 - Present
+                        Southern Lebanon | October 2023 - Present
                     </p>
 
                     <!-- Story Content -->
                     <div class="space-y-6 text-gray-800 leading-relaxed">
-                        <p>The fall of Kabul on August 15, 2021, marked the end of a 20-year Western military presence in Afghanistan and the return of Taliban rule. The chaotic evacuation from Hamid Karzai International Airport became a symbol of the abrupt end to America's longest war and the beginning of a new, uncertain chapter for the Afghan people.</p>
+                        <p>The conflict in Lebanon erupted in October 2023 when Hezbollah launched attacks on Israeli
+                            positions in solidarity with Hamas during the Gaza war. What began as cross-border
+                            skirmishes quickly escalated into a full-scale war that has devastated southern Lebanon and
+                            northern Israel, displacing hundreds of thousands of civilians on both sides of the border.
+                        </p>
 
-                        <p>The Taliban's swift takeover surprised many observers, as provincial capitals fell in rapid succession leading up to the capture of Kabul. The Afghan National Defense and Security Forces, despite years of training and billions in investment, collapsed almost entirely as government officials fled the country and soldiers abandoned their posts.</p>
+                        <p>The war has brought unprecedented destruction to Lebanese communities, with entire villages
+                            evacuated and infrastructure severely damaged. Schools, hospitals, and civilian buildings
+                            have been targeted, creating a humanitarian crisis in a country already struggling with
+                            economic collapse and political instability.</p>
 
-                        <p>For Afghan women and girls, the Taliban's return has meant a systematic rollback of rights gained over two decades. Universities have been closed to women, most female workers have been barred from their jobs, and women have been prohibited from most forms of employment except in essential services like healthcare.</p>
+                        <p>Lebanon's fragile economy, already in free fall since 2019, has been further crippled by the
+                            conflict. The Lebanese pound has lost even more value, basic services have been disrupted,
+                            and the country's already strained resources have been stretched to breaking point as it
+                            attempts to cope with displaced populations and damaged infrastructure.</p>
 
-                        <p>The humanitarian crisis that followed has been severe. The freezing of Afghan assets abroad and the suspension of international aid led to economic collapse, widespread unemployment, and food insecurity affecting millions of Afghans. International efforts to provide humanitarian assistance while avoiding legitimizing the Taliban government have created a delicate balance.</p>
+                        <p>The international community has struggled to mediate between the warring parties, with
+                            various diplomatic initiatives failing to achieve a lasting ceasefire. The conflict has also
+                            raised concerns about regional escalation, particularly given Lebanon's complex political
+                            landscape and the involvement of various international actors.</p>
 
-                        <p>Despite promises of a more moderate approach, the Taliban's governance has largely mirrored their previous rule in the 1990s, with strict interpretation of Islamic law, public executions, and severe restrictions on personal freedoms. The international community continues to grapple with how to engage with a regime that controls Afghanistan but lacks widespread international recognition.</p>
+                        <p>Civilian casualties have mounted on both sides, with families torn apart and communities
+                            destroyed. The psychological impact on children and vulnerable populations has been severe,
+                            adding to the long-term challenges that Lebanon will face in recovering from this latest
+                            conflict.</p>
 
-                        <p>The story of Afghanistan after the Taliban's return is one of a nation struggling to find stability while its people face uncertainty about their future. For many Afghans, particularly women and minorities, the promises of progress and democracy that defined the previous two decades have given way to a reality that echoes the country's tumultuous past.</p>
+                        <p>The war in Lebanon represents another tragic chapter in the Middle East's ongoing cycle of
+                            violence. As the international community searches for diplomatic solutions, the urgent need
+                            for humanitarian assistance and eventual reconstruction looms large over a country that has
+                            endured decades of conflict and instability.</p>
                     </div>
 
-                    <!-- Image Grid or Gallery could go here -->
-                    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Placeholder for images -->
-                        <div class="bg-gray-200 h-64  flex items-center justify-center">
-                            <span class="text-gray-500">Photo placeholder</span>
+                    <!-- Photo Gallery -->
+                    <div class="mt-12 space-y-8">
+                        <!-- Featured Image -->
+                        <div class="w-full">
+                            <img src="../photos/gallery 31.jpg" alt="The War in Lebanon - Main Image"
+                                class="w-full h-auto shadow-lg">
+                            <p class="text-sm text-gray-500 mt-2 font-raleway italic">Destroyed buildings in southern
+                                Lebanon following intense bombardment.</p>
                         </div>
-                        <div class="bg-gray-200 h-64  flex items-center justify-center">
-                            <span class="text-gray-500">Photo placeholder</span>
+
+                        <!-- Secondary Images Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <img src="../photos/gallery 1.jpg" alt="The War in Lebanon - Secondary Image 1"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Families flee their homes
+                                    carrying essential belongings.</p>
+                            </div>
+                            <div>
+                                <img src="../photos/gallery 6.jpg" alt="The War in Lebanon - Secondary Image 2"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Emergency shelters provide
+                                    temporary refuge for displaced civilians.</p>
+                            </div>
+                        </div>
+
+                        <!-- Additional Images -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <img src="../photos/gallery 9.jpg" alt="The War in Lebanon - Additional Image 1"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Medical teams work under
+                                    dangerous conditions to treat the wounded.</p>
+                            </div>
+                            <div>
+                                <img src="../photos/gallery 11.jpg" alt="The War in Lebanon - Additional Image 2"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">International aid
+                                    organizations provide humanitarian assistance.</p>
+                            </div>
+                        </div>
+
+                        <!-- Second Row of Additional Images -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <img src="../photos/gallery 31.jpg" alt="The War in Lebanon - Additional Image 3"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Children affected by the
+                                    conflict receive psychological support.</p>
+                            </div>
+                            <div>
+                                <img src="../photos/gallery 1.jpg" alt="The War in Lebanon - Additional Image 4"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Communities maintain hope
+                                    despite the devastating impact of war.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -163,4 +242,3 @@
 </body>
 
 </html>
-

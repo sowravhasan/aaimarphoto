@@ -7,14 +7,17 @@
     <title>The Fall of Assad - ANDREA AIMAR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../styles-clean.css">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'raleway': ['Libre Baskerville', 'serif'],
+                        baskerville: ['Libre Baskerville', 'serif'],
+                        raleway: ['Raleway', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
                     }
                 }
             }
@@ -30,23 +33,28 @@
                 <div class="flex items-center justify-between">
                     <!-- Logo -->
                     <div class="flex-shrink-0">
-                        <a href="../index.html" class="text-black font-raleway text-xl md:text-3xl font-medium" style="font-weight: 550; uppercase tracking-tighter hover:opacity-80 transition-opacity duration-300">
+                        <a href="../index.html" class="text-black font-raleway text-xl md:text-3xl font-medium"
+                            style="font-weight: 550; uppercase tracking-tighter hover:opacity-80 transition-opacity duration-300">
                             ANDREA AIMAR
                         </a>
                     </div>
 
                     <!-- Desktop Navigation -->
                     <div class="hidden md:flex items-center space-x-10">
-                        <a href="../stories.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                        <a href="../stories.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
                             STORIES
                         </a>
-                        <a href="../stories1.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                        <a href="../stories1.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
                             STORIES1
                         </a>
-                        <a href="../stories2.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                        <a href="../stories2.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
                             STORIES2
                         </a>
-                        <a href="../about.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                        <a href="../about.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
                             ABOUT
                         </a>
                     </div>
@@ -66,16 +74,20 @@
                 <!-- Mobile Navigation Menu -->
                 <div id="mobile-menu" class="md:hidden hidden mt-4 ">
                     <div class="space-y-4">
-                        <a href="../stories.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
+                        <a href="../stories.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
                             STORIES
                         </a>
-                        <a href="../stories1.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
+                        <a href="../stories1.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
                             STORIES1
                         </a>
-                        <a href="../stories2.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
+                        <a href="../stories2.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
                             STORIES2
                         </a>
-                        <a href="../about.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 hover:bg-gray-50 px-4  transition-all duration-300">
+                        <a href="../about.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 hover:bg-gray-50 px-4  transition-all duration-300">
                             ABOUT
                         </a>
                     </div>
@@ -84,12 +96,12 @@
 
             <!-- Mobile Menu JavaScript -->
             <script>
-                document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+                document.getElementById('mobile-menu-btn').addEventListener('click', function () {
                     const mobileMenu = document.getElementById('mobile-menu');
                     const hamburger = this.querySelector('.hamburger-menu');
-                    
+
                     mobileMenu.classList.toggle('hidden');
-                    
+
                     // Animate hamburger to X
                     if (mobileMenu.classList.contains('hidden')) {
                         hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
@@ -104,10 +116,10 @@
 
                 // Close mobile menu when clicking on links
                 document.querySelectorAll('#mobile-menu a').forEach(link => {
-                    link.addEventListener('click', function() {
+                    link.addEventListener('click', function () {
                         const mobileMenu = document.getElementById('mobile-menu');
                         const hamburger = document.querySelector('.hamburger-menu');
-                        
+
                         mobileMenu.classList.add('hidden');
                         hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
                         hamburger.querySelector('span:nth-child(2)').style.opacity = '1';
@@ -128,32 +140,103 @@
 
                     <!-- Story Subtitle -->
                     <p class="text-lg text-gray-600 mb-8 font-raleway">
-                        Kabul, Afghanistan | August 2021 - Present
+                        Damascus & Aleppo, Syria | December 2024 - Present
                     </p>
 
                     <!-- Story Content -->
                     <div class="space-y-6 text-gray-800 leading-relaxed">
-                        <p>The fall of Kabul on August 15, 2021, marked the end of a 20-year Western military presence in Afghanistan and the return of Taliban rule. The chaotic evacuation from Hamid Karzai International Airport became a symbol of the abrupt end to America's longest war and the beginning of a new, uncertain chapter for the Afghan people.</p>
+                        <p>The dramatic collapse of Bashar al-Assad's regime in December 2024 marked the end of more
+                            than five decades of Assad family rule in Syria. The rapid advance of opposition forces, led
+                            by Hayat Tahrir al-Sham (HTS), caught government forces and international observers by
+                            surprise as they swept from northern Syria to the capital Damascus in just days.</p>
 
-                        <p>The Taliban's swift takeover surprised many observers, as provincial capitals fell in rapid succession leading up to the capture of Kabul. The Afghan National Defense and Security Forces, despite years of training and billions in investment, collapsed almost entirely as government officials fled the country and soldiers abandoned their posts.</p>
+                        <p>Assad's downfall began with a renewed offensive in Aleppo province, where opposition forces
+                            exploited the weakened state of Syrian government forces and their allies. Russia's focus on
+                            Ukraine and Iran's regional challenges had left Assad's regime increasingly isolated and
+                            vulnerable to a coordinated assault that quickly gained momentum.</p>
 
-                        <p>For Afghan women and girls, the Taliban's return has meant a systematic rollback of rights gained over two decades. Universities have been closed to women, most female workers have been barred from their jobs, and women have been prohibited from most forms of employment except in essential services like healthcare.</p>
+                        <p>The Syrian military, long dependent on Russian airpower and Iranian-backed militias, crumbled
+                            as soldiers abandoned their posts and defected en masse. Key cities including Aleppo, Hama,
+                            and Homs fell in rapid succession, as government forces proved unable or unwilling to mount
+                            effective resistance against the advancing opposition coalition.</p>
 
-                        <p>The humanitarian crisis that followed has been severe. The freezing of Afghan assets abroad and the suspension of international aid led to economic collapse, widespread unemployment, and food insecurity affecting millions of Afghans. International efforts to provide humanitarian assistance while avoiding legitimizing the Taliban government have created a delicate balance.</p>
+                        <p>Assad's flight from Damascus to Moscow represented not just personal defeat but the collapse
+                            of a brutal authoritarian system that had ruled Syria since 1971. The regime's fall brought
+                            jubilation to many Syrians who had endured decades of repression, but also uncertainty about
+                            the country's future given the complex array of opposition groups now vying for control.</p>
 
-                        <p>Despite promises of a more moderate approach, the Taliban's governance has largely mirrored their previous rule in the 1990s, with strict interpretation of Islamic law, public executions, and severe restrictions on personal freedoms. The international community continues to grapple with how to engage with a regime that controls Afghanistan but lacks widespread international recognition.</p>
+                        <p>The humanitarian implications have been enormous, with celebrations in liberated areas
+                            contrasting sharply with fears among Assad's supporters, particularly Alawites and other
+                            minorities who had backed the regime. Prisons across Syria were opened, releasing thousands
+                            of political prisoners, including many who had been detained for over a decade.</p>
 
-                        <p>The story of Afghanistan after the Taliban's return is one of a nation struggling to find stability while its people face uncertainty about their future. For many Afghans, particularly women and minorities, the promises of progress and democracy that defined the previous two decades have given way to a reality that echoes the country's tumultuous past.</p>
+                        <p>International reactions have been mixed, with some nations cautiously welcoming Assad's
+                            departure while expressing concerns about the rise of groups like HTS, which despite recent
+                            moderation efforts, maintains roots in jihadist ideology. The challenge of rebuilding
+                            Syria's institutions and ensuring minority rights remains daunting.</p>
+
+                        <p>The fall of Assad has reshaped Middle Eastern geopolitics, weakening Iran's regional
+                            influence and forcing Russia to reassess its position in the region. For the Syrian people,
+                            Assad's departure offers both hope for freedom and democracy, and anxiety about whether the
+                            new order can bring stability and justice to a war-torn nation.</p>
                     </div>
 
-                    <!-- Image Grid or Gallery could go here -->
-                    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Placeholder for images -->
-                        <div class="bg-gray-200 h-64  flex items-center justify-center">
-                            <span class="text-gray-500">Photo placeholder</span>
+                    <!-- Photo Gallery -->
+                    <div class="mt-12 space-y-8">
+                        <!-- Featured Image -->
+                        <div class="w-full">
+                            <img src="../photos/gallery 9.jpg" alt="The Fall of Assad - Main Image"
+                                class="w-full h-auto shadow-lg">
+                            <p class="text-sm text-gray-500 mt-2 font-raleway italic">Syrians celebrate in Damascus's
+                                Umayyad Square after Assad's departure.</p>
                         </div>
-                        <div class="bg-gray-200 h-64  flex items-center justify-center">
-                            <span class="text-gray-500">Photo placeholder</span>
+
+                        <!-- Secondary Images Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <img src="../photos/gallery 11.jpg" alt="The Fall of Assad - Secondary Image 1"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Opposition forces take control
+                                    of government buildings in Damascus.</p>
+                            </div>
+                            <div>
+                                <img src="../photos/gallery 31.jpg" alt="The Fall of Assad - Secondary Image 2"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Political prisoners emerge
+                                    from Sednaya prison after years of detention.</p>
+                            </div>
+                        </div>
+
+                        <!-- Additional Images -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <img src="../photos/gallery 1.jpg" alt="The Fall of Assad - Additional Image 1"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Abandoned Syrian military
+                                    equipment litters the highways.</p>
+                            </div>
+                            <div>
+                                <img src="../photos/gallery 6.jpg" alt="The Fall of Assad - Additional Image 2"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Families search for missing
+                                    relatives at former detention centers.</p>
+                            </div>
+                        </div>
+
+                        <!-- Second Row of Additional Images -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <img src="../photos/gallery 9.jpg" alt="The Fall of Assad - Additional Image 3"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Refugees begin returning to
+                                    Syria from neighboring countries.</p>
+                            </div>
+                            <div>
+                                <img src="../photos/gallery 11.jpg" alt="The Fall of Assad - Additional Image 4"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">The uncertain but hopeful
+                                    future of post-Assad Syria begins.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -163,4 +246,3 @@
 </body>
 
 </html>
-

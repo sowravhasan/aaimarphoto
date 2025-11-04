@@ -7,14 +7,17 @@
     <title>Haiti: Chaos and Violence - ANDREA AIMAR</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../styles-clean.css">
-    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     fontFamily: {
-                        'raleway': ['Libre Baskerville', 'serif'],
+                        baskerville: ['Libre Baskerville', 'serif'],
+                        raleway: ['Raleway', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
                     }
                 }
             }
@@ -30,23 +33,28 @@
                 <div class="flex items-center justify-between">
                     <!-- Logo -->
                     <div class="flex-shrink-0">
-                        <a href="../index.html" class="text-black font-raleway text-xl md:text-3xl font-medium" style="font-weight: 550; uppercase tracking-tighter hover:opacity-80 transition-opacity duration-300">
+                        <a href="../index.html" class="text-black font-raleway text-xl md:text-3xl font-medium"
+                            style="font-weight: 550; uppercase tracking-tighter hover:opacity-80 transition-opacity duration-300">
                             ANDREA AIMAR
                         </a>
                     </div>
 
                     <!-- Desktop Navigation -->
                     <div class="hidden md:flex items-center space-x-10">
-                        <a href="../stories.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                        <a href="../stories.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
                             STORIES
                         </a>
-                        <a href="../stories1.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                        <a href="../stories1.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
                             STORIES1
                         </a>
-                        <a href="../stories2.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                        <a href="../stories2.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
                             STORIES2
                         </a>
-                        <a href="../about.html" class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
+                        <a href="../about.html"
+                            class="text-black font-raleway text-xs uppercase tracking-wider py-4 border-b border-transparent hover:border-black transition-all duration-300">
                             ABOUT
                         </a>
                     </div>
@@ -66,16 +74,20 @@
                 <!-- Mobile Navigation Menu -->
                 <div id="mobile-menu" class="md:hidden hidden mt-4 ">
                     <div class="space-y-4">
-                        <a href="../stories.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
+                        <a href="../stories.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
                             STORIES
                         </a>
-                        <a href="../stories1.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
+                        <a href="../stories1.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
                             STORIES1
                         </a>
-                        <a href="../stories2.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
+                        <a href="../stories2.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 border-b border-gray-200 hover:bg-gray-50 px-4  transition-all duration-300">
                             STORIES2
                         </a>
-                        <a href="../about.html" class="block text-black font-raleway text-sm uppercase tracking-wider py-3 hover:bg-gray-50 px-4  transition-all duration-300">
+                        <a href="../about.html"
+                            class="block text-black font-raleway text-sm uppercase tracking-wider py-3 hover:bg-gray-50 px-4  transition-all duration-300">
                             ABOUT
                         </a>
                     </div>
@@ -84,12 +96,12 @@
 
             <!-- Mobile Menu JavaScript -->
             <script>
-                document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+                document.getElementById('mobile-menu-btn').addEventListener('click', function () {
                     const mobileMenu = document.getElementById('mobile-menu');
                     const hamburger = this.querySelector('.hamburger-menu');
-                    
+
                     mobileMenu.classList.toggle('hidden');
-                    
+
                     // Animate hamburger to X
                     if (mobileMenu.classList.contains('hidden')) {
                         hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
@@ -104,10 +116,10 @@
 
                 // Close mobile menu when clicking on links
                 document.querySelectorAll('#mobile-menu a').forEach(link => {
-                    link.addEventListener('click', function() {
+                    link.addEventListener('click', function () {
                         const mobileMenu = document.getElementById('mobile-menu');
                         const hamburger = document.querySelector('.hamburger-menu');
-                        
+
                         mobileMenu.classList.add('hidden');
                         hamburger.querySelector('span:nth-child(1)').style.transform = 'rotate(0deg) translate(0, 0)';
                         hamburger.querySelector('span:nth-child(2)').style.opacity = '1';
@@ -128,32 +140,104 @@
 
                     <!-- Story Subtitle -->
                     <p class="text-lg text-gray-600 mb-8 font-raleway">
-                        Kabul, Afghanistan | August 2021 - Present
+                        Port-au-Prince, Haiti | July 2021 - Present
                     </p>
 
                     <!-- Story Content -->
                     <div class="space-y-6 text-gray-800 leading-relaxed">
-                        <p>The fall of Kabul on August 15, 2021, marked the end of a 20-year Western military presence in Afghanistan and the return of Taliban rule. The chaotic evacuation from Hamid Karzai International Airport became a symbol of the abrupt end to America's longest war and the beginning of a new, uncertain chapter for the Afghan people.</p>
+                        <p>Haiti plunged into unprecedented chaos following the assassination of President Jovenel Moïse
+                            on July 7, 2021. The killing of the president at his private residence marked the beginning
+                            of a complete breakdown of state authority and the emergence of powerful gangs that now
+                            control an estimated 60% of the country, including most of the capital, Port-au-Prince.</p>
 
-                        <p>The Taliban's swift takeover surprised many observers, as provincial capitals fell in rapid succession leading up to the capture of Kabul. The Afghan National Defense and Security Forces, despite years of training and billions in investment, collapsed almost entirely as government officials fled the country and soldiers abandoned their posts.</p>
+                        <p>Gang violence has reached levels that have shocked even Haiti, a country long accustomed to
+                            political instability and violence. The G9 alliance, led by former police officer Jimmy
+                            "Barbecue" Chérizier, has emerged as the most powerful force in the country, controlling
+                            ports, fuel terminals, and key infrastructure while demanding the resignation of Prime
+                            Minister Ariel Henry.</p>
 
-                        <p>For Afghan women and girls, the Taliban's return has meant a systematic rollback of rights gained over two decades. Universities have been closed to women, most female workers have been barred from their jobs, and women have been prohibited from most forms of employment except in essential services like healthcare.</p>
+                        <p>The humanitarian crisis has reached catastrophic proportions, with over 4.7 million Haitians
+                            facing acute hunger and more than 200,000 people displaced from their homes. Hospitals have
+                            been forced to close due to fuel shortages and gang attacks, while schools remain shuttered,
+                            leaving an entire generation of children without education.</p>
 
-                        <p>The humanitarian crisis that followed has been severe. The freezing of Afghan assets abroad and the suspension of international aid led to economic collapse, widespread unemployment, and food insecurity affecting millions of Afghans. International efforts to provide humanitarian assistance while avoiding legitimizing the Taliban government have created a delicate balance.</p>
+                        <p>Kidnappings have become a daily occurrence, with gangs targeting everyone from foreign
+                            missionaries to local businesspeople and ordinary citizens. The Haitian National Police,
+                            understaffed and outgunned, struggle to maintain any semblance of order as officers flee the
+                            country or join the very gangs they once fought against.</p>
 
-                        <p>Despite promises of a more moderate approach, the Taliban's governance has largely mirrored their previous rule in the 1990s, with strict interpretation of Islamic law, public executions, and severe restrictions on personal freedoms. The international community continues to grapple with how to engage with a regime that controls Afghanistan but lacks widespread international recognition.</p>
+                        <p>International efforts to restore stability have been complicated by Haiti's rejection of
+                            foreign military intervention and the failure of previous international missions. The UN and
+                            regional powers have struggled to find effective ways to support the Haitian people while
+                            respecting the country's sovereignty and avoiding the mistakes of past interventions.</p>
 
-                        <p>The story of Afghanistan after the Taliban's return is one of a nation struggling to find stability while its people face uncertainty about their future. For many Afghans, particularly women and minorities, the promises of progress and democracy that defined the previous two decades have given way to a reality that echoes the country's tumultuous past.</p>
+                        <p>The economic collapse has been total, with the Haitian gourde losing more than 50% of its
+                            value in 2022 alone. Basic services like water and electricity are virtually non-existent in
+                            many areas, while the cholera outbreak that began in October 2022 has added another layer to
+                            the crisis facing ordinary Haitians.</p>
+
+                        <p>Haiti's descent into chaos represents one of the most complete state failures in the Western
+                            Hemisphere. As gangs continue to expand their control and humanitarian conditions
+                            deteriorate, the international community faces the challenge of helping a proud nation that
+                            has repeatedly rejected external solutions to its internal problems.</p>
                     </div>
 
-                    <!-- Image Grid or Gallery could go here -->
-                    <div class="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Placeholder for images -->
-                        <div class="bg-gray-200 h-64  flex items-center justify-center">
-                            <span class="text-gray-500">Photo placeholder</span>
+                    <!-- Photo Gallery -->
+                    <div class="mt-12 space-y-8">
+                        <!-- Featured Image -->
+                        <div class="w-full">
+                            <img src="../photos/gallery 6.jpg" alt="Haiti Chaos and Violence - Main Image"
+                                class="w-full h-auto shadow-lg">
+                            <p class="text-sm text-gray-500 mt-2 font-raleway italic">Armed gang members patrol the
+                                streets of Port-au-Prince.</p>
                         </div>
-                        <div class="bg-gray-200 h-64  flex items-center justify-center">
-                            <span class="text-gray-500">Photo placeholder</span>
+
+                        <!-- Secondary Images Grid -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <img src="../photos/gallery 9.jpg" alt="Haiti Chaos and Violence - Secondary Image 1"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Families flee their
+                                    neighborhoods as gang violence escalates.</p>
+                            </div>
+                            <div>
+                                <img src="../photos/gallery 11.jpg" alt="Haiti Chaos and Violence - Secondary Image 2"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Makeshift camps house
+                                    thousands of displaced Haitians.</p>
+                            </div>
+                        </div>
+
+                        <!-- Additional Images -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <img src="../photos/gallery 31.jpg" alt="Haiti Chaos and Violence - Additional Image 1"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Protesters demand action
+                                    against gang violence and corruption.</p>
+                            </div>
+                            <div>
+                                <img src="../photos/gallery 1.jpg" alt="Haiti Chaos and Violence - Additional Image 2"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Children struggle to access
+                                    education amid ongoing violence.</p>
+                            </div>
+                        </div>
+
+                        <!-- Second Row of Additional Images -->
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <img src="../photos/gallery 6.jpg" alt="Haiti Chaos and Violence - Additional Image 3"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">International aid workers
+                                    provide emergency assistance.</p>
+                            </div>
+                            <div>
+                                <img src="../photos/gallery 9.jpg" alt="Haiti Chaos and Violence - Additional Image 4"
+                                    class="w-full h-64 object-cover shadow-md">
+                                <p class="text-sm text-gray-500 mt-2 font-raleway italic">Despite the chaos, the Haitian
+                                    people's resilience endures.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -163,4 +247,3 @@
 </body>
 
 </html>
-
