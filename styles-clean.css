@@ -84,6 +84,15 @@ html.fsvs #fsvs-body>* {
     transform: translateY(100%);
 }
 
+/* Mobile viewport fix */
+@media (max-width: 768px) {
+    .slide {
+        height: 100vh;
+        height: 100svh;
+        /* Small viewport height for mobile browsers */
+    }
+}
+
 .slide.active {
     opacity: 1;
     transform: translateY(0);
